@@ -1,11 +1,14 @@
-$c-bg: #efefef;
-$c-alt: #e41612;
-$c-text: #444;
+$step-0: clamp(0.75rem, 0.5455rem + 0.9091vw, 1.25rem);
+$step-1: clamp(1.125rem, 0.8182rem + 1.3636vw, 1.875rem);
+$step-2: clamp(1.6875rem, 1.2273rem + 2.0455vw, 2.8125rem);
+$space-s: clamp(0.75rem, 0.5455rem + 0.9091vw, 1.25rem);
+$space-xs: clamp(0.5625rem, 0.4091rem + 0.6818vw, 0.9375rem);
+$space-xl: clamp(2.25rem, 1.6364rem + 2.7273vw, 3.75rem);
+$border-radius: clamp(0.5625rem, 0.4091rem + 0.6818vw, 0.9375rem);
 
-$size-text: 18px;
-.viewport{
-    background-color: pink;
-    width: 50vh;
-    height: 50vh;
-    border-radius: 1em ;
-}
+$border-radius-section: clamp(1.125rem, 0.8182rem + 1.3636vw, 1.875rem);
+$border-radius-img: clamp(0.75rem, 0.5455rem + 0.9091vw, 1.25rem);
+
+$primary : #38318D;
+$secondary : #2247FF;
+$tertiary : #FFFFFF;
