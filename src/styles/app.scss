@@ -7,28 +7,62 @@ body{
     margin: 0;
 }
 .logo{
-    width: 4.55em;
+    width: 3em;
 }
+
 .landing{
     width: 100vw;
     height: 100vh;
     background: radial-gradient(#FF00A138, #FF00A100);
     &__nav{
+        box-sizing: border-box;
+        padding: $space-l $space-xl;
         z-index: 2;
         position: fixed;
-        top: 5%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-        height: 4.5em;
+        top: 0%;        
+        width: 100vw;
+        height: $space-2xl;
         display: flex;
         flex-flow: row;
         justify-content: space-between;
         align-items: center;
+        border-radius: 0;
+    }
+    &__actions{
+        display: none;
+    }
+    &__icon{
+        height: 1.25em;
+    }
+    &__links{
+        display: none;
     }
     &__logo{
-        width: 40vw;
+        width: 60vw;
         margin-bottom: $space-xl;
+    }
+    &__burgermenu{
+        transition: 2s;
+        box-sizing: border-box;
+        transform: translate(-100vw);
+        padding: $space-l;
+        position: absolute;
+        z-index: 10;
+        text-align: end;
+        width: 100vw;
+        height: 100vh;
+        font-weight: 600;
+        font-size: $step-2;
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        &links{
+            display: flex;
+            flex-flow: column wrap;
+            gap: $space-xl;
+            list-style: none;
+        }
     }
     &__text{
         display: flex;
@@ -39,4 +73,44 @@ body{
         left: 50%;
         transform: translate(-50%, -50%);
     }
+}
+.active{
+    transition: 2s;
+    transform: translate(100vw);
+}
+@media(min-width : 800px){
+    .landing{
+        &__nav{
+            border-radius: $border-radius-section;
+            padding: 0 $space-m;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: $space-xl;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__logo{
+            width: 40vw;
+            margin-bottom: $space-xl;
+        }
+        &__actions{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: $space-m;
+        }
+        &__links{
+            display: flex;
+            flex-flow: row nowrap;
+            list-style: none;
+            gap: $space-xl;
+        }
+        &__burgermenubtn{
+            display: none;
+        }
+    }
+    
 }

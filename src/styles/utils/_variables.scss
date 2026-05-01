@@ -3,7 +3,11 @@ $step-1: clamp(1.125rem, 0.8182rem + 1.3636vw, 1.875rem);
 $step-2: clamp(1.6875rem, 1.2273rem + 2.0455vw, 2.8125rem);
 $space-s: clamp(0.75rem, 0.5455rem + 0.9091vw, 1.25rem);
 $space-xs: clamp(0.5625rem, 0.4091rem + 0.6818vw, 0.9375rem);
+$space-m: clamp(1.125rem, 0.8182rem + 1.3636vw, 1.875rem);
+$space-l: clamp(1.5rem, 1.0909rem + 1.8182vw, 2.5rem);
+
 $space-xl: clamp(2.25rem, 1.6364rem + 2.7273vw, 3.75rem);
+$space-2xl: clamp(3rem, 2.1818rem + 3.6364vw, 5rem);
 $border-radius: clamp(0.5625rem, 0.4091rem + 0.6818vw, 0.9375rem);
 
 $border-radius-section: clamp(1.125rem, 0.8182rem + 1.3636vw, 1.875rem);
