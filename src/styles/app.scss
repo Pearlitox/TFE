@@ -9,7 +9,43 @@ body{
 .logo{
     width: 3em;
 }
-
+.custom{
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 80vh;
+    width: 80%;
+    
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    &__optionpanel{
+        grid-column: span 2 / span 2;
+        grid-row: span 4 / span 4;
+        grid-row-start: 2;
+    }
+    &__viewport{
+        background-color: white;
+        grid-column: span 3 / span 3;
+        grid-row: span 3 / span 3;
+        grid-column-start: 3;
+        grid-row-start: 2;
+    }
+    &__controlpanel{
+        grid-column: span 2 / span 2;
+        grid-column-start: 3;
+        grid-row-start: 5;
+    }
+    &__total{
+        grid-column-start: 5;
+        grid-row-start: 5;
+    }
+}
+.persoviewport{
+    width: 50vw;
+    height: 50vh;
+    background-color: red;
+}
 .landing{
     width: 100vw;
     height: 100vh;
@@ -74,9 +110,29 @@ body{
         transform: translate(-50%, -50%);
     }
 }
+.icon{
+    height: $step-1;
+}
+.section{
+    box-sizing: border-box;
+    padding: $space-xl;
+    width: 100%;
+    margin: 0 auto;
+}
 .active{
     transition: 2s;
     transform: translate(100vw);
+}
+.textandcta{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+}
+.texticon{
+    display: flex;
+    flex-flow: row;
+    align-items: baseline;
+    gap: $space-xs; //changer en 2XS
 }
 @media(min-width : 800px){
     .landing{
@@ -112,5 +168,16 @@ body{
             display: none;
         }
     }
+    .section{
+        width: 70%;
+    }
+    .textandcta{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    }
+
     
 }
