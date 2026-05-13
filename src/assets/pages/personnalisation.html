@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personnalisation</title>
     <link rel="stylesheet" href="../../styles/app.css">
-
+    
+    <script src="../../scripts/app.js" defer></script>
 </head>
-<body>
-        <nav class="landing__nav glass">
+<body class="bodycustom">
+    <nav class="landing__nav glass notfixed">
       <img class="logo" src="../images/SVG/icon_color.svg" alt="Icone logo Pearly Nails" />
       <ul class="landing__links">
         <li class="landing__link"><a href="">Nouveautés</a></li>
@@ -34,14 +35,123 @@
       </ul>
     </div>
     <div class="custom">
+      <div class="custom__left">
         <div class="custom__optionpanel glass">
+          <div class="custom__sidenav">
+            <div class="custom__step">
+              <img src="../images/SVG/almond_logo.svg" alt="">
+              <p class="overtitle">
+                Forme
+              </p>
+            </div>
+            <div class="custom__step">
+              <img src="../images/SVG/nailnailart_french_logo.svg" alt="">
+              <p class="overtitle">
+                Nail art
+              </p>
+            </div>
+            <div class="custom__step">
+              <img src="../images/SVG/decoration_fleur_logo.svg" alt="">
+              <p class="overtitle">
+                Décos
+              </p>
+            </div>
+            <div class="custom__step">
+              <img src="../images/SVG/almond_logo.svg" alt="">
+              <p class="overtitle">
+                Finish
+              </p>
+            </div>
+            
+          </div>
+          <div class="custom__options custom__options--shape">
+            <div class="custom__page">
+              <h2 class="subtitle">
+                Forme
+              </h2>
+              <div class="custom__shapes row">
+                <div class="cell">
+                  <div class="custom__shape custom__shape--square">
+                  </div>
+                  <p class="paragraph">
+                    Carré
+                  </p>
+                </div>
+               <div class="cell">
+                  <div class="custom__shape custom__shape--coffin">
+                  </div>
+                  <p class="paragraph">
+                    Cercueil
+                  </p>
+                </div>
+                <div class="cell">
+                  <div class="custom__shape custom__shape--almond">
+                  </div>
+                  <p class="paragraph">
+                    Amande
+                  </p>
+                </div>
+                <div class="cell">
+                  <div class="custom__shape custom__shape--stiletto">
+                  </div>
+                  <p class="paragraph">
+                    Stiletto
+                  </p>
+                </div>
+              
+              </div>
+              <h2 class="subtitle">
+                  Longueur
+                </h2>
+              <div class="custom__sizes row">
+              
+                <h3 class="custom__size custom__size--xs overtitle btn">
+                  XS
+                </h3>
+                <h3 class="custom__size custom__size--s overtitle btn">
+                  S
+                </h3>
+                <h3 class="custom__size custom__size--m overtitle btn">
+                  M
+                </h3>
+                <h3 class="custom__size custom__size--l overtitle btn">
+                  L
+                </h3>
+              </div>
+              <h2 class="subtitle">
+                Couleur
+              </h2>
+              <div class="custom__colors row">
+                <div class="custom__color custom__color--beige"></div>
+              </div>
+            </div>
+            <div class="custom__page">
+              <h2 class="subtitle">
+                Nailart
+              </h2>
+              <div class="custom__nailart row">
+                
+              </div>
+            </div>  
+          </div>
         </div>
-        <canvas class="custom__viewport">
+      </div>
+      <div class="custom__right">
+        <canvas class="custom__viewport" id="customcanvas">
         </canvas>
-        <div class="custom__controlpanel">
+        <div class="custom__bottom">
+          <div class="custom__controlpanel">
+          </div>
+          <div class="custom__total">
+            <h2 class="subtitle">
+              Price TTC
+            </h2>
+            <a class="btn custom__next" href="">Suivant</a>
+          </div>
         </div>
-        <div class="custom__total">
-        </div>
+      </div>
+        
+        
     </div>
     
 </body>

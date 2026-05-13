@@ -2,7 +2,7 @@
 @import 'components/type';
 
 body{
-    background: url(../assets/images/paper-texture.jpg);
+    background: url(../assets/images/paper-texture.jpg) ;
     padding: 0;
     margin: 0;
 }
@@ -10,35 +10,100 @@ body{
     width: 3em;
 }
 .custom{
-    margin: 0 auto;
     box-sizing: border-box;
-    height: 80vh;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 75vh;
     width: 80%;
-    
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 8px;
-    &__optionpanel{
-        grid-column: span 2 / span 2;
-        grid-row: span 4 / span 4;
-        grid-row-start: 2;
+    margin: 0 auto;
+    gap: $space-l;
+    &__left{
+        width: 35vw;
+        height: 100%;
     }
+    &__right{
+        gap: $space-s;
+        width: 65vw;
+        height: 100%;
+    }
+    &__optionpanel{
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+    &__shape{
+        width: $space-xl;
+        height: $space-xl;
+        border-radius: $border-radius;
+        border: solid $primary 2px;
+        &--square{
+            background: url(../assets/images/SVG/custom/logos/square_logo.svg) center no-repeat;
+            background-size: 48%;
+        }
+        &--stiletto{
+            background: url(../assets/images/SVG/custom/logos/stiletto_logo.svg) center no-repeat;
+        }
+        &--almond{
+            background: url(../assets/images/SVG/custom/logos/almond_logo.svg) center no-repeat;
+        }
+        &--coffin{
+            background: url(../assets/images/SVG/custom/logos/coffin_logo.svg) center no-repeat;
+        }
+    
+    }
+    &__sidenav{
+        margin: $space-l 0;
+        width: 25%;
+        border-right: solid 2px $primary;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    &__step{
+        border-radius: $border-radius;
+        transition: 0.1s;
+        padding: $space-2xs;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        margin-bottom: $space-xs;
+        & img{
+            width: $space-m;
+            margin-bottom: $space-xs;
+        }
+        &:hover{
+            transition: 0.1s;
+            background-color: white;
+        }
+
+    }
+    &__options{
+        box-sizing: border-box;
+        width: 65%;
+        padding: $space-l 0 $space-m $space-xs ;
+    } 
     &__viewport{
-        background-color: white;
-        grid-column: span 3 / span 3;
-        grid-row: span 3 / span 3;
-        grid-column-start: 3;
-        grid-row-start: 2;
+        border-radius: $border-radius-section;
+        
+        width: 100%;
+        height: 80%;
+    }
+    &__bottom{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: last baseline;
+        justify-content: space-between;
+        text-align: end;
+        margin-top: $space-s;
     }
     &__controlpanel{
-        grid-column: span 2 / span 2;
-        grid-column-start: 3;
-        grid-row-start: 5;
+        width: 70%;
+        height: 100%;
     }
-    &__total{
-        grid-column-start: 5;
-        grid-row-start: 5;
+    &__next{
+        margin: 0;
     }
 }
 .persoviewport{
@@ -49,7 +114,8 @@ body{
 .landing{
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(#FF00A138, #FF00A100);
+    background: #FF00A138;
+    background: radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
     &__nav{
         box-sizing: border-box;
         padding: $space-l $space-xl;
@@ -63,6 +129,11 @@ body{
         justify-content: space-between;
         align-items: center;
         border-radius: 0;
+    }
+    &__links{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     &__actions{
         display: none;
@@ -110,8 +181,118 @@ body{
         transform: translate(-50%, -50%);
     }
 }
+
+.collections{
+    &__options{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        gap: $space-m;
+    }
+    &__option{
+        width: 100%;
+        border-radius: $border-radius-section;
+        height: 10vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: end;
+        padding: $space-s;
+        background-color: red;
+        
+
+    }
+    &__name{
+        color: white;
+        margin-bottom: $space-xs;
+    }
+
+}
+.exemples{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: $space-xl;
+    &__slider{
+        height: 55vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        padding: $space-2xl;
+    }
+    &__pics{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: $space-xs;
+        height: 100%;
+        width: 100%;
+        margin-bottom: $space-l;
+    }
+    &__pic{
+        transition: 0.2s;
+        border-radius: $border-radius-img;
+        width: 15%;
+        background-color: aqua;
+        &:hover{
+            transition: 0.2s;
+            width: 30%;
+        }
+    }
+}
+.cell{
+    transition: 0.2s;
+    width: fit-content;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    &:hover{
+        cursor: pointer;
+        transition: 0.2s;
+        transform: translateY(-5%);
+        
+    }
+}
+.products{
+    &__options{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: $space-m;
+    }
+    &__img{
+        transition: 0.2s;
+        height: $space-7xl;
+        width: $space-7xl;
+        background-color: green;
+        border-radius: $border-radius-img;
+        margin-bottom: $space-s;
+        
+    }
+    border-bottom: solid #2247FF80 2px;
+}
+.desktop{
+    display: none;
+}
+.row{
+    display: flex;
+    flex-flow: row;
+    gap: $space-xs;
+    margin-bottom: $space-s;
+}
+.mobile{
+    display: block;
+}
+.text{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
 .icon{
     height: $step-1;
+    margin-left: 0;
 }
 .section{
     box-sizing: border-box;
@@ -127,14 +308,22 @@ body{
     display: flex;
     flex-flow: column wrap;
     width: 100%;
+    margin-bottom: $space-l;
+    justify-content: center;
 }
 .texticon{
     display: flex;
     flex-flow: row;
     align-items: baseline;
+    justify-content: center;
     gap: $space-xs; //changer en 2XS
 }
-@media(min-width : 800px){
+
+.mobile{
+    display: block;
+}
+@media(min-width : 1200px){
+
     .landing{
         &__nav{
             border-radius: $border-radius-section;
@@ -178,6 +367,46 @@ body{
     justify-content: space-between;
     width: 100%;
     }
-
+    .collections{
+        &__cta{
+            display: block;
+        }
+        &__options{
+            flex-flow: row;
+            gap: $space-xl;
+        }
+        &__option{
+            width:30%;
+            height: 30vh;
+        }
+    }
+    .texticon{
+        justify-content: start;
+    }
+    .desktop{
+        display: block;
+    }
+    .mobile{
+        display: none;
+    }
+    .text{
+        align-items: start;
+    }
+    .exemples{
+        &__slider{
+            width: 100%;
+        }
+    }
     
+    .products{
+        &__options{
+            justify-content: space-between;
+            gap: $space-m;
+        }
+    }
+    
+}
+.notfixed{
+    margin: $space-xl  0;
+    position: relative;
 }

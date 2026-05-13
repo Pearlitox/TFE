@@ -1,0 +1,9 @@
+[
+    {
+        "Nailartlogos":{
+            "french":"assets/data/custom/logos/nailart_french_logo.svg",
+            "pointyfrench":"assets/data/custom/logos/nailart_pointyfrench_logo.svg",
+            "asymetric":"assets/data/custom/logos/nailart_asymetric_logo.svg"
+        }
+    }
+]

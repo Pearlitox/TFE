@@ -12,12 +12,17 @@
   color: $primary;
 }
 .paragraph{
-  
+  max-width: 50ch;
   margin-bottom: $space-s;
   margin-top: 0;
   font-size: $step-0;
 }
+.step{
+  color: $primary;
+  font-size: $step-1;
+}
 .overtitle{
+  color: $secondary;
   margin-bottom: $space-xs;
   margin-top: 0;
   font-weight: 500;
@@ -28,8 +33,10 @@
   margin-top: 0;
   font-family: cyrene;
   font-size: $step-2;
+  font-weight: 100;
 }
 .btn{  
+  width: fit-content;
   transition: 0.2s;
   font-weight: 600;
   padding: $space-xs $space-s;
