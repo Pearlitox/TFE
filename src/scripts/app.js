@@ -16,8 +16,8 @@ const init = {
 }
 
 const canvas = new fabric.Canvas('customcanvas',{
-    width: 1000,
-    height: 600,
+    width: 900,
+    height: 500,
     backgroundColor: 'white',
 });
 let shapestate = 0
@@ -65,11 +65,27 @@ init.shapes.forEach((shape) =>{
   })*/
 });
 
+const nailartrow = document.querySelector('.custom__nailart')
 fetch('../data/data.json')
   .then((response)=>{
     return response.json();
   })
   .then((data)=>{
     console.log(data)
+    data.nailart.forEach(function(item){
+      const p = document.createElement('p');
+      p.classList.add('paragraph');
+      p.innerText = item.name;
+      const img = document.createElement('img');
+      img.classList.add('choice')
+      img.src = item.img
+      const div = document.createElement('div');
+      div.appendChild(img);
+      div.appendChild(p);
+      div.classList.add("cell");
+      nailartrow.appendChild(div); 
+      
+      
+    })
   });
 

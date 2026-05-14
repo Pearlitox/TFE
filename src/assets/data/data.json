@@ -1,9 +1,20 @@
-[
+
     {
-        "Nailartlogos":{
-            "french":"assets/data/custom/logos/nailart_french_logo.svg",
-            "pointyfrench":"assets/data/custom/logos/nailart_pointyfrench_logo.svg",
-            "asymetric":"assets/data/custom/logos/nailart_asymetric_logo.svg"
-        }
+        "nailart":[
+            { 
+                "name": "French",
+                "img":"../data/custom/logos/nailart_french_logo.svg"
+            },
+            { 
+                "name": "V-French",
+                "img": "../data/custom/logos/nailart_pointyfrench_logo.svg"
+            },
+            { 
+                "name": "Side French",
+                "img":"../data/custom/logos/nailart_asymetric_logo.svg"
+            }
+        ]
+        
     }
-]
+    
+

@@ -18,12 +18,12 @@ body{
     margin: 0 auto;
     gap: $space-l;
     &__left{
-        width: 35vw;
+        width: 40vw;
         height: 100%;
     }
     &__right{
         gap: $space-s;
-        width: 65vw;
+        width: 60vw;
         height: 100%;
     }
     &__optionpanel{
@@ -251,8 +251,11 @@ body{
     &:hover{
         cursor: pointer;
         transition: 0.2s;
-        transform: translateY(-5%);
-        
+        transform: translateY(-5%); 
+    }
+    &:active{
+        transition: 0.2s;
+        transform: scale(0.9);
     }
 }
 .products{
@@ -281,6 +284,12 @@ body{
     flex-flow: row;
     gap: $space-xs;
     margin-bottom: $space-s;
+}
+.choice{
+    width: $space-xl;
+    height: $space-xl;
+    border-radius: $border-radius;
+    border: solid $primary 2px;
 }
 .mobile{
     display: block;
