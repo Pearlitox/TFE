@@ -15,7 +15,7 @@ body{
     flex-flow: row nowrap;
     height: 75vh;
     width: 80%;
-    margin: 0 auto;
+    margin: 7.5% auto 0;
     gap: $space-l;
     &__left{
         width: 40vw;
@@ -333,6 +333,9 @@ body{
 
 .mobile{
     display: block;
+}
+.hidden{
+    display: none;
 }
 @media(min-width : 1200px){
 

@@ -1,6 +1,4 @@
 import { fabric } from "fabric";
-const url = '../assets/images/SVG/custom/molds/almond-mold.svg';
-
 const init = {
   shapes : document.querySelectorAll('.custom__shape'),
   sizes : document.querySelectorAll('.custom__size'),
@@ -22,6 +20,25 @@ const canvas = new fabric.Canvas('customcanvas',{
 });
 let shapestate = 0
 let mold = null
+
+const steps = document.querySelectorAll(".custom__step");
+
+steps.forEach((step) =>{
+  const pages = document.querySelectorAll('custom__page');
+  step.addEventListener('click', function(){
+    
+    if(step === shapestep){
+      
+    }else if(step === nailartstep){
+
+    }else if(step === decosstep){
+
+    }else if(step === finishstep){
+
+    }
+  })
+})
+
 init.shapes.forEach((shape) =>{
   shape.addEventListener('click', function(){
     
