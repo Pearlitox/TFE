@@ -3,15 +3,43 @@
         "nailart":[
             { 
                 "name": "French",
-                "img":"../data/custom/logos/nailart_french_logo.svg"
+                "img":"../data/logos/nailart_french_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
             },
             { 
-                "name": "V-French",
-                "img": "../data/custom/logos/nailart_pointyfrench_logo.svg"
+                "name": "Pointe",
+                "img": "../data/logos/nailart_pointyfrench_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
             },
             { 
-                "name": "Side French",
-                "img":"../data/custom/logos/nailart_asymetric_logo.svg"
+                "name": "Side",
+                "img":"../data/logos/nailart_asymetric_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
+            },
+            { 
+                "name": "Y2K",
+                "img":"../data/logos/nailart_flat_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
+            },
+            { 
+                "name": "Square",
+                "img": "../data/logos/nailart_square_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
+            },
+            { 
+                "name": "Ombré",
+                "img":"../data/logos/nailart_babyboomer_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
+            },
+            { 
+                "name": "Aura",
+                "img":"../data/logos/nailart_aura_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
+            },
+            { 
+                "name": "Deep",
+                "img":"../data/logos/nailart_deep_logo.svg",
+                "canvasimg":"../data/nailart/nailart_french.svg"
             }
         ]
         

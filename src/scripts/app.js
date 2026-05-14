@@ -43,7 +43,6 @@ init.shapes.forEach((shape) =>{
           "selectable": false,
           "eventable": false
         });
-        canvas.getElement(mold);
         mold.scaleToHeight(500);
         mold.scaleToWidth(500);
         canvas.add(mold);
@@ -83,7 +82,24 @@ fetch('../data/data.json')
       div.appendChild(img);
       div.appendChild(p);
       div.classList.add("cell");
-      nailartrow.appendChild(div); 
+      nailartrow.appendChild(div);
+
+      const nailarturl = item.canvasimg;
+      
+
+      div.addEventListener('click', function(){
+        console.log(nailarturl);
+        fabric.Image.fromURL( nailarturl , function(img){
+          const nailart = img.set({
+            
+          });
+          nailart.scaleToHeight(500);
+          nailart.scaleToWidth(500);
+          canvas.add(nailart);
+          canvas.centerObject(nailart);
+          canvas.renderAll();
+        });
+      })
       
       
     })

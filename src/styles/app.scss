@@ -242,9 +242,11 @@ body{
         }
     }
 }
+
 .cell{
     transition: 0.2s;
     width: fit-content;
+    max-width: $space-xl;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -281,8 +283,9 @@ body{
 }
 .row{
     display: flex;
-    flex-flow: row;
-    gap: $space-xs;
+    flex-flow: row wrap;
+    column-gap: $space-s;
+    row-gap: 0;
     margin-bottom: $space-s;
 }
 .choice{
