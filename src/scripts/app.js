@@ -16,7 +16,7 @@ const init = {
 const canvas = new fabric.Canvas('customcanvas',{
     width: 900,
     height: 500,
-    backgroundColor: 'white',
+    backgroundColor: 'gray',
 });
 let shapestate = 0
 let mold = null
@@ -38,10 +38,10 @@ steps.forEach((step) =>{
     }
   })
 })
-
+//pas opti à changer + tard
 init.shapes.forEach((shape) =>{
   shape.addEventListener('click', function(){
-    
+
     let imgurl = '../images/molds/square_medium.webp';
     
       if(shape === init.coffin){
@@ -60,8 +60,13 @@ init.shapes.forEach((shape) =>{
           "selectable": false,
           "eventable": false
         });
+        if(mold){
+          canvas.remove(mold);
+        }
         mold.scaleToHeight(500);
         mold.scaleToWidth(500);
+        canvas.bringToFront(mold);
+
         canvas.add(mold);
         canvas.centerObject(mold);
         canvas.renderAll();
@@ -110,9 +115,14 @@ fetch('../data/data.json')
           const nailart = img.set({
             
           });
-          nailart.scaleToHeight(500);
-          nailart.scaleToWidth(500);
+          if(nailart){
+            canvas.remove(nailart);
+          }
+          nailart.scaleToHeight(480);
+          nailart.scaleToWidth(480);
+          
           canvas.add(nailart);
+          canvas.sendToBack(nailart);
           canvas.centerObject(nailart);
           canvas.renderAll();
         });
