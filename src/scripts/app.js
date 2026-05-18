@@ -23,26 +23,26 @@ steps.forEach((step) =>{
   })
 })
 
-//ajouter des images dans le canvas
 let currentnailart = null;
 let currentmold = null;
-let shapestate = 0
+let currentsize = 0
 const nailartrow = document.querySelector('.custom__nailart');
 const shapesrow = document.querySelector('.custom__shapes');
 const sizes = document.querySelectorAll('.custom__size');
 
 sizes.forEach(function(size){
         size.addEventListener('click', function(){
-          if(size === 'custom__size--xs'){
-            shapestate = 1;
-          }else if(size === 'custom__size--xs'){
-            shapestate = 2;
-          }else if(size === 'custom__size--xs'){
-            shapestate = 3;
-          }else if(size === 'custom__size--xs'){
-            shapestate = 4;
+          if(size.classList.contains('custom__size--xs')){
+
+            currentsize = "xs";
+          }else if(size.classList.contains('custom__size--s')){
+            currentsize = "s";
+          }else if(size.classList.contains('custom__size--m')){
+            currentsize = "m";
+          }else if(size.classList.contains('custom__size--l')){
+            currentsize = "l";
           }
-          console.log(shapestate)
+          console.log(currentsize)
         
         })
       });
@@ -53,26 +53,6 @@ fetch('../data/data.json')
     return response.json();
   })
   .then((data)=>{
-    sizes.forEach(function(size){
-        size.addEventListener('click', function(){
-          if(size = 'custom__size--xs'){
-            shapestate = 1;
-            const moldurl = item.xs;
-            
-          }else if(size = 'custom__size--xs'){
-            shapestate = 2;
-            const moldurl = item.s;
-          }else if(size = 'custom__size--xs'){
-            shapestate = 3;
-            const moldurl = item.m;
-          }else if(size = 'custom__size--xs'){
-            shapestate = 4;
-            const moldurl = item.l;
-          }
-          console.log(shapestate)
-        
-        })
-      });
     data.molds.forEach(function(item){
       const createdelement = {
         p: document.createElement('p'),
@@ -90,27 +70,9 @@ fetch('../data/data.json')
       const moldurl = item.m;
       
       createdelement.div.addEventListener('click', function(){
-        fabric.Image.fromURL( moldurl , function(img){
-          img.set({
-            "selectable": false,
-            "eventable": false,
-          })
-          if(currentmold){
-            canvas.remove(currentmold);
-          }
-          img.scaleToHeight(500);
-          img.scaleToWidth(500);
-          
-          canvas.add(img);
-          canvas.bringToFront(img);
-          canvas.centerObject(img);
-
-          currentmold = img;
-          
-          canvas.renderAll();
-        });
+        addImage(item.m);
       })
-      
+    
     });
     data.nailart.forEach(function(item){
       const p = document.createElement('p');
@@ -149,3 +111,25 @@ fetch('../data/data.json')
       
     })
   });
+  function addImage(url){
+
+      fabric.Image.fromURL( url , function(img){
+        img.set({
+          "selectable": false,
+          "eventable": false,
+        })
+        if(currentmold){
+          canvas.remove(currentmold);
+        }
+        img.scaleToHeight(500);
+        img.scaleToWidth(500);
+        
+        canvas.add(img);
+        canvas.bringToFront(img);
+        canvas.centerObject(img);
+
+        currentmold = img;
+        
+        canvas.renderAll();
+      });
+  }
