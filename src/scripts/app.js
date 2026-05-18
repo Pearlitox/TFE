@@ -1,26 +1,10 @@
 import { fabric } from "fabric";
-const init = {
-  shapes : document.querySelectorAll('.custom__shape'),
-  sizes : document.querySelectorAll('.custom__size'),
-  xs : document.querySelectorAll('.custom__size--xs'),
-  s : document.querySelectorAll('.custom__size--s'),
-  m : document.querySelectorAll('.custom__size--m'),
-  l : document.querySelectorAll('.custom__size--l'),
-  square : document.querySelector('.custom__shape--square'),
-  coffin : document.querySelector('.custom__shape--coffin'),
-  almond : document.querySelector('.custom__shape--almond'),
-  stiletto : document.querySelector('.custom__shape--stiletto')
-
-}
 
 const canvas = new fabric.Canvas('customcanvas',{
     width: 900,
-    height: 500,
+    height: 525,
     backgroundColor: 'gray',
 });
-let shapestate = 0
-let mold = null
-
 const steps = document.querySelectorAll(".custom__step");
 
 steps.forEach((step) =>{
@@ -38,61 +22,77 @@ steps.forEach((step) =>{
     }
   })
 })
-//pas opti à changer + tard
-init.shapes.forEach((shape) =>{
-  shape.addEventListener('click', function(){
 
-    let imgurl = '../images/molds/square_medium.webp';
-    
-      if(shape === init.coffin){
-        imgurl ='../images/molds/cercueil_medium.webp';
-        shapestate = 1
-      }else if(shape === init.almond){
-        imgurl ='../images/molds/almond_medium.webp';
-        shapestate = 2
-      }else if(shape === init.stiletto){
-        imgurl ='../images/molds/stiletto_medium.webp';
-        shapestate = 3
-      }
-
-      fabric.Image.fromURL( imgurl , function(img){
-        const mold = img.set({
-          "selectable": false,
-          "eventable": false
-        });
-        if(mold){
-          canvas.remove(mold);
-        }
-        mold.scaleToHeight(500);
-        mold.scaleToWidth(500);
-        canvas.bringToFront(mold);
-
-        canvas.add(mold);
-        canvas.centerObject(mold);
-        canvas.renderAll();
-      });
-    
-  })
-  /*
-  init.sizes.forEach((size)=>{
-
-    size.addEventListener('click', function(){
-      if(shapestate == 1){
-        if(size === init.xs){
-          console.log(size);
-        }
-      }
-    })
-  })*/
-});
-
-const nailartrow = document.querySelector('.custom__nailart')
+//ajouter des images dans le canvas
+let currentnailart = null;
+let currentmold = null;
+let shapestate = 0
+const nailartrow = document.querySelector('.custom__nailart');
+const shapesrow = document.querySelector('.custom__shapes');
+const sizes = document.querySelectorAll('.custom__size');
 fetch('../data/data.json')
   .then((response)=>{
     return response.json();
   })
   .then((data)=>{
-    console.log(data)
+    sizes.forEach(function(size){
+        size.addEventListener('click', function(){
+          if(size === "custom__size--xs"){
+            shapestate = 1;
+            const moldurl = item.xs;
+            
+          }else if(size === "custom__size--s"){
+            shapestate = 2;
+            const moldurl = item.s;
+          }else if(size === "custom__size--m"){
+            shapestate = 3;
+            const moldurl = item.m;
+          }else if(size === "custom__size--s"){
+            shapestate = 4;
+            const moldurl = item.l;
+          }
+        })
+      });
+    data.molds.forEach(function(item){
+      const createdelement = {
+        p: document.createElement('p'),
+        img: document.createElement('img'),
+        div: document.createElement('div')
+      };
+      createdelement.p.classList.add('paragraph');
+      createdelement.p.innerText = item.name;
+      createdelement.img.classList.add('choice');
+      createdelement.img.src = item.img;
+      createdelement.div.classList.add('cell');
+      createdelement.div.appendChild(createdelement.img);
+      createdelement.div.appendChild(createdelement.p);
+      shapesrow.appendChild(createdelement.div);
+      const moldurl = item.m;
+    
+      
+      createdelement.div.addEventListener('click', function(){
+        fabric.Image.fromURL( moldurl , function(img){
+          img.set({
+            "selectable": false,
+            "eventable": false,
+          })
+          if(currentmold){
+            canvas.remove(currentmold);
+          }
+          img.scaleToHeight(500);
+          img.scaleToWidth(500);
+          
+          canvas.add(img);
+          canvas.bringToFront(img);
+          canvas.centerObject(img);
+
+          currentmold = img;
+          
+          canvas.renderAll();
+        });
+      })
+      
+    });
     data.nailart.forEach(function(item){
       const p = document.createElement('p');
       p.classList.add('paragraph');
@@ -108,22 +108,21 @@ fetch('../data/data.json')
 
       const nailarturl = item.canvasimg;
       
-
       div.addEventListener('click', function(){
-        console.log(nailarturl);
+        
         fabric.Image.fromURL( nailarturl , function(img){
-          const nailart = img.set({
-            
-          });
-          if(nailart){
-            canvas.remove(nailart);
+          if(currentnailart){
+            canvas.remove(currentnailart);
           }
-          nailart.scaleToHeight(480);
-          nailart.scaleToWidth(480);
+          img.scaleToHeight(500);
+          img.scaleToWidth(500);
           
-          canvas.add(nailart);
-          canvas.sendToBack(nailart);
-          canvas.centerObject(nailart);
+          canvas.add(img);
+          canvas.sendToBack(img);
+          canvas.centerObject(img);
+
+          currentnailart = img;
+          
           canvas.renderAll();
         });
       })

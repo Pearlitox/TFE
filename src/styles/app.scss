@@ -10,56 +10,43 @@ body{
     width: 3em;
 }
 .custom{
+    background: #FF00A138;
+    background: radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
     box-sizing: border-box;
     display: flex;
-    flex-flow: row nowrap;
-    height: 75vh;
+    flex-flow: column-reverse;
+    height: 100vh;
     width: 80%;
-    margin: 7.5% auto 0;
+    padding: 7.5% 0 ;
+    margin: 0 auto;
     gap: $space-l;
     &__left{
-        width: 40vw;
-        height: 100%;
+        height: 55%;
+        width: 100%;
+        margin: 0 auto;
     }
     &__right{
         gap: $space-s;
-        width: 60vw;
-        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        height: 50%;
     }
     &__optionpanel{
         box-sizing: border-box;
         height: 100%;
         width: 100%;
         display: flex;
-        flex-flow: row wrap;
-    }
-    &__shape{
-        width: $space-xl;
-        height: $space-xl;
-        border-radius: $border-radius;
-        border: solid $primary 2px;
-        &--square{
-            background: url(../assets/images/SVG/custom/logos/square_logo.svg) center no-repeat;
-            background-size: 48%;
-        }
-        &--stiletto{
-            background: url(../assets/images/SVG/custom/logos/stiletto_logo.svg) center no-repeat;
-        }
-        &--almond{
-            background: url(../assets/images/SVG/custom/logos/almond_logo.svg) center no-repeat;
-        }
-        &--coffin{
-            background: url(../assets/images/SVG/custom/logos/coffin_logo.svg) center no-repeat;
-        }
-    
-    }
-    &__sidenav{
-        margin: $space-l 0;
-        width: 25%;
-        border-right: solid 2px $primary;
-        display: flex;
         flex-flow: column;
         align-items: center;
+    }
+    &__sidenav{
+        margin: $space-m 0;
+        width: 80%;
+        border-bottom: solid 2px $primary;
+        display: flex;
+        flex-flow: row;
+        align-items: baseline;
+        justify-content: center;
     }
     &__step{
         border-radius: $border-radius;
@@ -79,10 +66,14 @@ body{
         }
 
     }
+    &__page{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
     &__options{
         box-sizing: border-box;
-        width: 65%;
-        padding: $space-l 0 $space-m $space-xs ;
+        width: 70%;
     } 
     &__viewport{
         border-radius: $border-radius-section;
@@ -246,7 +237,6 @@ body{
 .cell{
     transition: 0.2s;
     width: fit-content;
-    max-width: $space-xl;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -284,13 +274,13 @@ body{
 .row{
     display: flex;
     flex-flow: row wrap;
-    column-gap: $space-s;
+    column-gap: $space-xs;
     row-gap: 0;
     margin-bottom: $space-s;
 }
 .choice{
-    width: $space-xl;
-    height: $space-xl;
+    width: $space-2xl;
+    height: $space-2xl;
     border-radius: $border-radius;
     border: solid $primary 2px;
 }
@@ -337,7 +327,31 @@ body{
 .hidden{
     display: none;
 }
-@media(min-width : 1200px){
+.star{
+    position: absolute;
+    background-size: auto;
+    &__pink{
+        background: url(../assets/images/);
+    }
+    &__pastelblue{
+        background: url(../assets/images/star_pastelblue.webp) bottom;
+        &--custom1{
+            z-index: -3;
+            width: 80vh;
+            height: 80vh;
+            top: -20%;
+            right: 0;
+        }
+    }
+    &__blue{
+        background: url(../assets/images/star_blue.webp);
+    }
+    
+    &__green{
+        background: url(../assets/images/star_green.webp);
+    }
+}
+@media(min-width : 800px){
 
     .landing{
         &__nav{
@@ -395,6 +409,50 @@ body{
             height: 30vh;
         }
     }
+    .custom{
+        display: flex;
+        flex-flow: row nowrap;
+        &__left{
+        width: 40vw;
+        height: 100%;
+        }
+        &__optionpanel{
+        display: flex;
+        flex-flow: row nowrap;
+        
+        align-items: start;
+        }
+        
+        &__options{
+            width: 65%;
+            padding: $space-l 0 $space-m $space-xs ;
+        } 
+        &__sidenav{
+        margin: $space-l 0;
+        width: 25%;
+        border-bottom: 0;
+        border-right: solid 2px $primary;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        }
+        &__right{
+        gap: $space-s;
+        width: 60vw;
+        height: 100%;
+        }
+        &__page{
+            align-items: start;
+        }
+    
+    }
+    .choice{
+        width: $space-xl;
+        height: $space-xl;
+        border-radius: $border-radius;
+        border: solid $primary 2px;
+    }
     .texticon{
         justify-content: start;
     }
@@ -406,6 +464,9 @@ body{
     }
     .text{
         align-items: start;
+    }
+    .row{
+        column-gap: $space-s;
     }
     .exemples{
         &__slider{

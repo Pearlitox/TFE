@@ -9,7 +9,7 @@
             { 
                 "name": "Pointe",
                 "img": "../data/logos/nailart_pointyfrench_logo.svg",
-                "canvasimg":"../data/nailart/nailart_french.webp"
+                "canvasimg":"../data/nailart/nailart_pointe.webp"
             },
             { 
                 "name": "Side",
@@ -19,7 +19,7 @@
             { 
                 "name": "Y2K",
                 "img":"../data/logos/nailart_flat_logo.svg",
-                "canvasimg":"../data/nailart/nailart_french.webp"
+                "canvasimg":"../data/nailart/nailart_y2k.webp"
             },
             { 
                 "name": "Square",
@@ -29,17 +29,55 @@
             { 
                 "name": "Ombré",
                 "img":"../data/logos/nailart_babyboomer_logo.svg",
-                "canvasimg":"../data/nailart/nailart_french.webp"
+                "canvasimg":"../data/nailart/nailart_ombre.webp"
             },
             { 
                 "name": "Aura",
                 "img":"../data/logos/nailart_aura_logo.svg",
-                "canvasimg":"../data/nailart/nailart_french.webp"
+                "canvasimg":"../data/nailart/nailart_aura.webp"
             },
             { 
                 "name": "Deep",
                 "img":"../data/logos/nailart_deep_logo.svg",
-                "canvasimg":"../data/nailart/nailart_french.webp"
+                "canvasimg":"../data/nailart/nailart_deep.webp"
+            }
+        ],
+        "molds":[
+            { 
+                "name": "Carré",
+                "img": "../data/logos/square_logo.svg",
+                "xs":"../data/molds/square_xtrashort.webp",
+                "s":"../data/molds/square_short.webp",
+                "m":"../data/molds/square_medium.webp",
+                "l":"../data/molds/square_long.webp"
+                
+            },
+            { 
+                "name": "Cercueil",
+                "img": "../data/logos/coffin_logo.svg",
+                "xs":"../data/molds/cercueil_xtrashort.webp",
+                "s":"../data/molds/cercueil_short.webp",
+                "m":"../data/molds/cercueil_medium.webp",
+                "l":"../data/molds/cercueil_long.webp"
+                
+            },
+            { 
+                "name": "Amande",
+                "img": "../data/logos/almond_logo.svg",
+                "xs":"../data/molds/almond_xtrashort.webp",
+                "s":"../data/molds/almond_short.webp",
+                "m":"../data/molds/almond_medium.webp",
+                "l":"../data/molds/almond_long.webp"
+                
+            },
+            { 
+                "name": "Stiletto",
+                "img": "../data/logos/stiletto_logo.svg",
+                "xs":"../data/molds/stiletto_xtrashort.webp",
+                "s":"../data/molds/stiletto_short.webp",
+                "m":"../data/molds/stiletto_medium.webp",
+                "l":"../data/molds/stiletto_long.webp"
+                
             }
         ]
         
