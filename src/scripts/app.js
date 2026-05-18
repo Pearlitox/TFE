@@ -30,6 +30,24 @@ let shapestate = 0
 const nailartrow = document.querySelector('.custom__nailart');
 const shapesrow = document.querySelector('.custom__shapes');
 const sizes = document.querySelectorAll('.custom__size');
+
+sizes.forEach(function(size){
+        size.addEventListener('click', function(){
+          if(size === 'custom__size--xs'){
+            shapestate = 1;
+          }else if(size === 'custom__size--xs'){
+            shapestate = 2;
+          }else if(size === 'custom__size--xs'){
+            shapestate = 3;
+          }else if(size === 'custom__size--xs'){
+            shapestate = 4;
+          }
+          console.log(shapestate)
+        
+        })
+      });
+
+
 fetch('../data/data.json')
   .then((response)=>{
     return response.json();
@@ -37,20 +55,22 @@ fetch('../data/data.json')
   .then((data)=>{
     sizes.forEach(function(size){
         size.addEventListener('click', function(){
-          if(size === "custom__size--xs"){
+          if(size = 'custom__size--xs'){
             shapestate = 1;
             const moldurl = item.xs;
             
-          }else if(size === "custom__size--s"){
+          }else if(size = 'custom__size--xs'){
             shapestate = 2;
             const moldurl = item.s;
-          }else if(size === "custom__size--m"){
+          }else if(size = 'custom__size--xs'){
             shapestate = 3;
             const moldurl = item.m;
-          }else if(size === "custom__size--s"){
+          }else if(size = 'custom__size--xs'){
             shapestate = 4;
             const moldurl = item.l;
           }
+          console.log(shapestate)
+        
         })
       });
     data.molds.forEach(function(item){
@@ -68,7 +88,6 @@ fetch('../data/data.json')
       createdelement.div.appendChild(createdelement.p);
       shapesrow.appendChild(createdelement.div);
       const moldurl = item.m;
-    
       
       createdelement.div.addEventListener('click', function(){
         fabric.Image.fromURL( moldurl , function(img){
@@ -130,4 +149,3 @@ fetch('../data/data.json')
       
     })
   });
-
