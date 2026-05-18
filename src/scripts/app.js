@@ -1,4 +1,16 @@
+import { active } from "browser-sync";
 import { fabric } from "fabric";
+
+const burgermenubtn = document.querySelector('.landing__burgermenubtn');
+const burgermenu = document.querySelector('.landing__burgermenu');
+const exit = document.querySelector('.landing__exit');
+
+burgermenubtn.addEventListener('click', function(){
+  burgermenu.classList.add('active');
+})
+exit.addEventListener('click', function(){
+  burgermenu.classList.remove('active');
+})
 
 const canvas = new fabric.Canvas('customcanvas',{
     width: 900,
@@ -25,11 +37,11 @@ steps.forEach((step) =>{
 
 let currentnailart = null;
 let currentmold = null;
-let currentsize = 0
+let currentsize = "m"
 const nailartrow = document.querySelector('.custom__nailart');
 const shapesrow = document.querySelector('.custom__shapes');
 const sizes = document.querySelectorAll('.custom__size');
-
+let shapestate = null
 sizes.forEach(function(size){
         size.addEventListener('click', function(){
           if(size.classList.contains('custom__size--xs')){
@@ -46,7 +58,6 @@ sizes.forEach(function(size){
         
         })
       });
-
 
 fetch('../data/data.json')
   .then((response)=>{
@@ -67,10 +78,11 @@ fetch('../data/data.json')
       createdelement.div.appendChild(createdelement.img);
       createdelement.div.appendChild(createdelement.p);
       shapesrow.appendChild(createdelement.div);
-      const moldurl = item.m;
+      
       
       createdelement.div.addEventListener('click', function(){
-        addImage(item.m);
+        shapestate = item;
+        addImage(item[currentsize]);
       })
     
     });

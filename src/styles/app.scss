@@ -66,6 +66,14 @@ body{
         }
 
     }
+    &__stars{
+        background: url(../assets/images/star_green.webp), url(../assets/images/star_pastelblue.webp);
+        background-position: -20% -30%, 150% 120%;
+        background-repeat: no-repeat;
+        background-size: 70%, 80%;
+        opacity: 0.6;
+        
+    }
     &__page{
         display: flex;
         flex-flow: column wrap;
@@ -104,7 +112,7 @@ body{
 }
 .landing{
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     background: #FF00A138;
     background: radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
     &__nav{
@@ -120,6 +128,14 @@ body{
         justify-content: space-between;
         align-items: center;
         border-radius: 0;
+    }
+    &__stars{
+        background: url(../assets/images/star_green.webp), url(../assets/images/star_pastelblue.webp), url(../assets/images/star_purple.webp);
+        background-position: -20% -30%, -10% 10%, 10% 120%;
+        background-repeat: no-repeat;
+        background-size: 80%, 150%, 100%;
+        opacity: 0.6;
+
     }
     &__links{
         position: absolute;
@@ -140,11 +156,11 @@ body{
         margin-bottom: $space-xl;
     }
     &__burgermenu{
-        transition: 2s;
+        transition: 1s;
         box-sizing: border-box;
-        transform: translate(-100vw);
+        transform: translate(100vw);
         padding: $space-l;
-        position: absolute;
+        position: fixed;
         z-index: 10;
         text-align: end;
         width: 100vw;
@@ -162,6 +178,12 @@ body{
             list-style: none;
         }
     }
+    &__exit{
+        position: absolute;
+        left: $space-l;
+        height: $space-l;
+        justify-self: start;
+    }
     &__text{
         display: flex;
         flex-flow: column wrap;
@@ -172,7 +194,12 @@ body{
         transform: translate(-50%, -50%);
     }
 }
-
+.stars{
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+}
 .collections{
     &__options{
         display: flex;
@@ -182,7 +209,8 @@ body{
         gap: $space-m;
     }
     &__option{
-        width: 100%;
+        box-sizing: border-box;
+        width: $space-2xl;
         border-radius: $border-radius-section;
         height: 10vh;
         display: flex;
@@ -303,8 +331,8 @@ body{
     margin: 0 auto;
 }
 .active{
-    transition: 2s;
-    transform: translate(100vw);
+    transition: 1s;
+    transform: translate(0vw);
 }
 .textandcta{
     display: flex;
@@ -351,9 +379,16 @@ body{
         background: url(../assets/images/star_green.webp);
     }
 }
-@media(min-width : 800px){
+@media(min-width : 1200px){
 
     .landing{
+        &__stars{
+        height: 110vh;
+        width: 100vw;
+        background-position: -300px -550px, 800px -700px, right 200px;
+        background-size: 60%, 70%, 50%;
+        background-repeat: no-repeat;
+        }
         &__nav{
             border-radius: $border-radius-section;
             padding: 0 $space-m;
