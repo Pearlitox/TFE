@@ -42,22 +42,7 @@ const nailartrow = document.querySelector('.custom__nailart');
 const shapesrow = document.querySelector('.custom__shapes');
 const sizes = document.querySelectorAll('.custom__size');
 let shapestate = null
-sizes.forEach(function(size){
-        size.addEventListener('click', function(){
-          if(size.classList.contains('custom__size--xs')){
 
-            currentsize = "xs";
-          }else if(size.classList.contains('custom__size--s')){
-            currentsize = "s";
-          }else if(size.classList.contains('custom__size--m')){
-            currentsize = "m";
-          }else if(size.classList.contains('custom__size--l')){
-            currentsize = "l";
-          }
-          console.log(currentsize)
-        
-        })
-      });
 
 fetch('../data/data.json')
   .then((response)=>{
@@ -65,6 +50,7 @@ fetch('../data/data.json')
   })
   .then((data)=>{
     data.molds.forEach(function(item){
+      
       const createdelement = {
         p: document.createElement('p'),
         img: document.createElement('img'),
@@ -86,6 +72,23 @@ fetch('../data/data.json')
       })
     
     });
+    sizes.forEach(function(size){
+      size.addEventListener('click', function(){
+        if(size.classList.contains('custom__size--xs')){
+            currentsize = "xs";
+          }else if(size.classList.contains('custom__size--s')){
+            currentsize = "s";
+          }else if(size.classList.contains('custom__size--m')){
+            currentsize = "m";
+          }else if(size.classList.contains('custom__size--l')){
+            currentsize = "l";
+          }
+          console.log(currentsize)
+          data.molds.forEach(function(){ 
+            addImage(shapestate[currentsize])
+          })
+        })
+      });
     data.nailart.forEach(function(item){
       const p = document.createElement('p');
       p.classList.add('paragraph');
@@ -119,9 +122,16 @@ fetch('../data/data.json')
           canvas.renderAll();
         });
       })
-      
-      
-    })
+      /*
+    colors.foreach(function(color){
+    color.addEventListener('click', function(){
+      data.nailart.forEach(function(){
+        addImage(item.canvasimg[color]);
+      })
+      });
+    });*/
+    
+    });
   });
   function addImage(url){
 

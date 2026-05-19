@@ -137,6 +137,16 @@ body{
         opacity: 0.6;
 
     }
+    &__hands{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: url(../assets/images/hand_green.webp), url(../assets/images/hand_colorful.webp), url(../assets/images/hand_pink.webp);
+        background-repeat: no-repeat;
+        background-position: -200px top, left 570px, right bottom;
+        background-size: 150%, 85%, 95%;
+        
+    }
     &__links{
         position: absolute;
         left: 50%;
@@ -177,12 +187,18 @@ body{
             gap: $space-xl;
             list-style: none;
         }
+        &btn:hover{
+            cursor: pointer;
+        }
     }
     &__exit{
         position: absolute;
         left: $space-l;
         height: $space-l;
         justify-self: start;
+        &:hover{
+            cursor: pointer;
+        }
     }
     &__text{
         display: flex;
@@ -210,7 +226,7 @@ body{
     }
     &__option{
         box-sizing: border-box;
-        width: $space-2xl;
+        width: 100%;
         border-radius: $border-radius-section;
         height: 10vh;
         display: flex;
@@ -218,6 +234,9 @@ body{
         justify-content: end;
         padding: $space-s;
         background-color: red;
+        &:hover{
+            cursor: pointer;
+        }
         
 
     }
@@ -235,6 +254,12 @@ body{
     }
 
 }
+.theme{
+    width: 70%;
+    margin: 0 auto;
+    height: 100vh;
+    padding: 7.5% 0;
+}
 .exemples{
     display: flex;
     flex-flow: column;
@@ -251,7 +276,7 @@ body{
     }
     &__pics{
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column;
         justify-content: center;
         gap: $space-xs;
         height: 100%;
@@ -261,11 +286,14 @@ body{
     &__pic{
         transition: 0.2s;
         border-radius: $border-radius-img;
-        width: 15%;
+        height: 10%;
+        width: 100%;
         background-color: aqua;
         &:hover{
             transition: 0.2s;
-            width: 30%;
+            height: 40%;
+            cursor: pointer;
+
         }
     }
 }
@@ -391,6 +419,7 @@ body{
     align-items: baseline;
     justify-content: center;
     gap: $space-xs; //changer en 2XS
+    text-align: center;
 }
 
 .mobile{
@@ -422,6 +451,14 @@ body{
         background-position: -300px -550px, 800px -700px, right 200px;
         background-size: 60%, 70%, 50%;
         background-repeat: no-repeat;
+        }
+        &__hands{
+            background-position: 300px top, left 200px, right center;
+            background-size: 50%, 40%, 40%;
+        }
+        &__logo{
+        width: 50vw;
+        margin-bottom: $space-m;
         }
         &__nav{
             border-radius: $border-radius-section;
@@ -532,6 +569,7 @@ body{
     }
     .texticon{
         justify-content: start;
+        text-align: left;
     }
     .desktop{
         display: block;
@@ -548,6 +586,21 @@ body{
     .exemples{
         &__slider{
             width: 100%;
+        }
+        &__pics{
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            gap: $space-xs;
+            height: 100%;
+            width: 100%;
+            margin-bottom: $space-l;
+            &:hover{
+            transition: 0.2s;
+            width: 40%;
+            cursor: zoom-in;
+
+        }
         }
     }
     
