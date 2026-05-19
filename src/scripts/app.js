@@ -1,4 +1,4 @@
-import { active } from "browser-sync";
+
 import { fabric } from "fabric";
 
 const burgermenubtn = document.querySelector('.landing__burgermenubtn');

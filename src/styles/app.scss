@@ -225,6 +225,14 @@ body{
         color: white;
         margin-bottom: $space-xs;
     }
+    &__stars{
+        width: 100vw;
+        height: 200vh;
+        background: url(../assets/images/star_pastelblue.webp);
+        background-repeat: no-repeat;
+        background-position: -500px 300px;
+        opacity: 0.7;
+    }
 
 }
 .exemples{
@@ -261,7 +269,35 @@ body{
         }
     }
 }
-
+.socialmedias{
+    &__slider{
+        height: 55vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        padding: $space-2xl;
+    }
+    &__icon{
+        height: $space-l;
+    }
+    &__links{
+        display: flex;
+        flex-flow: row wrap;
+        gap: $space-s;
+    }
+    &__imgs{
+        height: 30vh;
+    }
+    &__stars{
+        height: 100vh;
+        background: url(../assets/images/star_pastelblue.webp), url(../assets/images/star_blue.webp);
+        background-size: 60%, 80%;
+        background-repeat: no-repeat;
+        background-position: left 0px, right bottom;
+        opacity: 0.6;
+    }
+}
 .cell{
     transition: 0.2s;
     width: fit-content;
@@ -284,6 +320,14 @@ body{
         flex-flow: row wrap;
         justify-content: center;
         gap: $space-m;
+    }
+    &__stars{
+        width: 100vw;
+        height: 150vh;
+        background: url(../assets/images/star_green.webp);
+        background-repeat: no-repeat;
+        background-position: right 0px;
+        opacity: 0.7;
     }
     &__img{
         transition: 0.2s;
@@ -355,28 +399,18 @@ body{
 .hidden{
     display: none;
 }
-.star{
-    position: absolute;
-    background-size: auto;
-    &__pink{
-        background: url(../assets/images/);
-    }
-    &__pastelblue{
-        background: url(../assets/images/star_pastelblue.webp) bottom;
-        &--custom1{
-            z-index: -3;
-            width: 80vh;
-            height: 80vh;
-            top: -20%;
-            right: 0;
-        }
-    }
-    &__blue{
-        background: url(../assets/images/star_blue.webp);
-    }
+.footer{
+    height: 150vh;
+    background: linear-gradient(0deg,rgba(85, 29, 153, 1) 0%, rgba(63, 69, 163, 1) 44%, rgba(63, 69, 163, 0) 43%, rgba(63, 69, 163, 0) 76%);
     
-    &__green{
+    &__stars{
+        height: 150vh;
+        z-index: 1;
         background: url(../assets/images/star_green.webp);
+        background-size: 60%,100%;
+        background-repeat: no-repeat;
+        background-position: center;
+       
     }
 }
 @media(min-width : 1200px){
@@ -481,6 +515,14 @@ body{
             align-items: start;
         }
     
+    }
+    .socialmedias{
+        &__stars{
+            height: 125vh;
+            background-size: 50%, 60%;
+            background-position: left -100px, right bottom;
+            opacity: 0.6;
+        }
     }
     .choice{
         width: $space-xl;
