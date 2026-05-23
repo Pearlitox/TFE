@@ -223,6 +223,7 @@ body{
     width: 100vw;
 }
 .collections{
+    position: relative;
     &__options{
         display: flex;
         justify-content: center;
@@ -250,6 +251,7 @@ body{
         color: white;
         margin-bottom: $space-xs;
     }&__star{
+        position: absolute;
         pointer-events: none;
         top: 50%;
         right: 0;

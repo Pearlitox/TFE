@@ -1,5 +1,29 @@
-
 import { fabric } from "fabric";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.landing__stars', {
+    yPercent: 5,
+    scrollTrigger : {
+      trigger: '.landing',
+      start: 'top top',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
+  gsap.to('.collections__star', {
+    yPercent: -20,
+    scrollTrigger : {
+      trigger: '.landing',
+      start: 'top top',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
+
+
 
 const burgermenubtn = document.querySelector('.landing__burgermenubtn');
 const burgermenu = document.querySelector('.landing__burgermenu');
