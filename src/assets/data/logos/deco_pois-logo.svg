@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106.93 126.55">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #38318d;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <circle class="cls-1" cx="13.24" cy="13.25" r="11.24"/>
+    <circle class="cls-1" cx="54.69" cy="63.27" r="11.24"/>
+    <circle class="cls-1" cx="13.24" cy="113.31" r="11.24"/>
+    <circle class="cls-1" cx="93.68" cy="13.24" r="11.24"/>
+    <circle class="cls-1" cx="93.68" cy="113.3" r="11.24"/>
+  </g>
+</svg>
