@@ -4,8 +4,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+
   gsap.to('.landing__stars', {
-    yPercent: 5,
+    yPercent: 10,
     scrollTrigger : {
       trigger: '.landing',
       start: 'top top',
@@ -13,11 +15,56 @@ gsap.registerPlugin(ScrollTrigger);
       scrub: true,
     },
   });
+  gsap.to('.collections__stars', {
+    yPercent: 5,
+    scrollTrigger : {
+      trigger: '.collections',
+      start: 'top top',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
   gsap.to('.collections__star', {
-    yPercent: -20,
+    yPercent: -40,
     scrollTrigger : {
       trigger: '.landing',
       start: 'top top',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
+  gsap.to('.exemples__star', {
+    yPercent: -40,
+    scrollTrigger : {
+      trigger: '.exemples',
+      start: 'top bottom',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
+  gsap.to('.products__star', {
+    yPercent: -40,
+    scrollTrigger : {
+      trigger: '.products',
+      start: 'top bottom',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
+gsap.to('.products__stars', {
+    yPercent: 5,
+    scrollTrigger : {
+      trigger: '.products',
+      start: 'top bottom',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
+gsap.to('.socialmedias__stars', {
+    yPercent: 5,
+    scrollTrigger : {
+      trigger: '.socialmedias',
+      start: 'top bottom',
       end: "bottom+=2000",
       scrub: true,
     },
