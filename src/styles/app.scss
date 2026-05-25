@@ -33,8 +33,8 @@ body{
     &__right{
         gap: $space-s;
         width: 100%;
-        margin: 0 auto;
-        height: 50%;
+        margin: 15% 0 0;
+        height: 60%;
     }
     &__optionpanel{
         box-sizing: border-box;
@@ -413,6 +413,26 @@ body{
         transform: scale(0.9);
     }
 }
+.aboutus{
+    height: 70vh;
+    display: flex;
+    flex-direction: row wrap;
+    align-items: center;
+}
+.tutorial{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.canvas-container{
+    gap: $space-s;
+    width: 100%;
+    margin: 0 auto;
+    height: 50%;
+}
 .products{
     &__options{
         display: flex;
@@ -514,16 +534,16 @@ body{
 }
 .footer{
     height: 150vh;
-    background: linear-gradient(0deg,rgba(85, 29, 153, 1) 0%, rgba(63, 69, 163, 1) 44%, rgba(63, 69, 163, 0) 43%, rgba(63, 69, 163, 0) 76%);
+    width: 100vw;
+    background: url(../assets/images/star_green.webp) ,url(../assets/images/star_pastelblue.webp), linear-gradient(180deg, rgba(63, 69, 163, 0) 0%, rgba(63, 69, 163, 1) 35%, rgba(85, 29, 153, 1) 89%, rgba(85, 29, 153, 1) 100%);
+    background-size: 70%, 60%, 100%;
+    background-repeat: no-repeat;
+    background-position: -50%, 150% 100%;
+    bottom: 0;
     
     &__stars{
-        height: 150vh;
-        z-index: 1;
-        background:url(../assets/images/footer-star.png);
-        background-size: 80%;
-        background-repeat: repeat;
-        background-position: center;
-       
+        position: absolute;
+        z-index: 5;
     }
     
 }
@@ -632,12 +652,19 @@ body{
         gap: $space-s;
         width: 60vw;
         height: 100%;
+        margin: 0;
         }
         &__page{
             align-items: start;
         }
     
     }
+    /*.canvas-container{
+        gap: $space-s;
+        width: 100%;
+        margin: 0 auto;
+        height: 50%;
+    }*/
     .socialmedias{
         &__stars{
             height: 125vh;
