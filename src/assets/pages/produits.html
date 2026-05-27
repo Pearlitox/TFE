@@ -8,7 +8,7 @@
     <script src="../../scripts/app.js" defer></script>
 </head>
 <body>
-  <div class="custom__stars stars"></div>
+    <div class="custom__stars stars"></div>
     <nav class="landing__nav glass">
       <a href="../../index.html">
         <img class="logo" src="../images/SVG/icon_color.svg" alt="Icone PearlyNails" />
@@ -34,49 +34,22 @@
         <li class="landing__link landing__link--aboutus"><a href="../../index.html">A propos de nous</a></li>
       </ul>
     </div>
-    <section class="theme">
-      <h2 class="subtitle">
-      Nos collections
-      </h2>
-      <div class="theme__grid">
-        <a class="theme__collection theme__collection--loudluxury" href="produits.html">
-          <div>
-            <h2 class="theme__subtitle subtitle">
-              Loud Luxury
-            </h2>
-          </div>
-        </a>
-        <a class="theme__collection theme__collection--corporategirly" href="produits.html">
-          <div>
-            <h2 class="theme__subtitle subtitle">
-              Chrome madness
-            </h2>
-          </div>
-        </a>
-        <a class="theme__collection theme__collection--summershine" href="produits.html">
-          <div>
-            <h2 class="theme__subtitle subtitle">
-              Summershine
-            </h2>
-          </div>
-        </a>
-        <a class="theme__collection theme__collection--springfloral" href="produits.html">
-          <div>
-            <h2 class="theme__subtitle subtitle">
-              Spring Floral
-            </h2>
-          </div>
-        </a>
-        <a class="theme__collection theme__collection--timelessclassics" href="produits.html">
-          <div>
-            <h2 class="theme__subtitle subtitle">
-              Timeless Classics
-            </h2>
-          </div>
-        </a>
+    <section class="productsgallery">
+      <form class="productsgallery__filter glass" action="">
+        <select class="productsgallery__select" name="collectionsfilter" id="collectionsfilter">
+          <option value="tous">Tous les produits</option>
+          <option value="Timeless Classics">Timeless Classics</option>
+          <option value="Loud Luxury">Loud Luxury</option>
+          <option value="Chrome Madness">Chrome Madness</option>
+          <option value="Spring Floral">Spring Florals</option>
+          <option value="Summershine">Summershine</option>
+        </select>
+      </form>
+      <h2 class="subtitle productsgallery__h2">Tous nos produits</h2>
+      <div class="productsgallery__options">
+
       </div>
-      
-      
     </section>
+    
 </body>
 </html>

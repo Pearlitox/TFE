@@ -509,6 +509,167 @@
 
             }
             
+        ], 
+        "Timeless Classics":[
+            {
+                "name": "French manucure",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "15",
+                "priceS": "17.50",
+                "priceM": "20",
+                "priceL": "22.50"
+            },
+            {
+                "name": "Babyboomer",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "15",
+                "priceS": "17.50",
+                "priceM": "20",
+                "priceL": "22.50"
+            },
+            {
+                "name": "White chrome",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "15",
+                "priceS": "17.50",
+                "priceM": "20",
+                "priceL": "22.50"
+            }
+        ],
+        "Loud Luxury":[
+            {
+                "name": "Red bottoms",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            },
+            {
+                "name": "Midas' greed",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            },
+            {
+                "name": "Four petals",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            }
+        ],
+        "Summershine":[
+            {
+                "name": "Beach club",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            },
+            {
+                "name": "Earthy",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            },
+            {
+                "name": "Mother-of-pearl",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            }
+        ],
+        "Spring Floral":[
+            {
+                "name": "Flower princess",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            },
+            {
+                "name": "Spring wedding",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            },
+            {
+                "name": "Polka dots",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            }
+        ],
+        
+        "Chrome Madness":[
+            {
+                "name": "Sterling silver",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "35",
+                "priceS": "37.50",
+                "priceM": "39",
+                "priceL": "41.50"
+            },
+            {
+                "name": "Holochrome",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "35",
+                "priceS": "37.50",
+                "priceM": "39",
+                "priceL": "41.50"
+            },
+            {
+                "name": "Starry nights",
+                "imgset": "",
+                "imghover" :"",
+                "imgmodel": "",
+                "priceXs": "32.50",
+                "priceS": "35",
+                "priceM": "37.50",
+                "priceL": "35"
+            }
         ]
         
     }

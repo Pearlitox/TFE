@@ -16,9 +16,9 @@
         <img class="logo" src="../images/SVG/icon_color.svg" alt="Icone PearlyNails" />
       </a>
       <ul class="landing__links">
-        <li class="landing__link"><a href="../pages/collections.html">Collections</a></li>
-        <li class="landing__link"><a href="../pages/personnalisation.html">Personnalisation</a></li>
-        <li class="landing__link"><a href="../pages/nouveautes.html">A propos de nous</a></li>
+        <li class="landing__link"><a href="collections.html">Collections</a></li>
+        <li class="landing__link"><a href="personnalisation.html">Personnalisation</a></li>
+        <li class="landing__link"><a href="../../index.html">A propos de nous</a></li>
       </ul>
       <div class="landing__actions">
         <img class="landing__icon" src="../images/SVG/loupe.svg" alt="Rechercher">
@@ -30,11 +30,10 @@
     <div class="landing__burgermenu">
       <img class="landing__exit" src="../images/SVG/exit.svg" alt="croix pour fermer le menu burger">
       <ul class="landing__burgermenulinks">
-        <li class="landing__link"><a href="">Nouveautés</a></li>
-        <li class="landing__link"><a href="">Collections</a></li>
-        <li class="landing__link"><a href="../pages/personnalisation.html">Personnalisation</a></li>
+        <li class="landing__link"><a href="collections.html">Collections</a></li>
+        <li class="landing__link"><a href="personnalisation.html">Personnalisation</a></li>
         <li class="landing__link"><a href="">S'inscrire</a></li>
-        <li class="landing__link"><a href="">A propos de nous</a></li>
+        <li class="landing__link landing__link--aboutus"><a href="../../index.html">A propos de nous</a></li>
       </ul>
     </div>
     <div class="custom">
@@ -143,17 +142,40 @@
           </canvas>
         </div>
         
-        <div class="custom__bottom">
+        <div class="custom__bottom custom__backward">
           <div class="custom__controlpanel">
-            <img src="" alt="">
-            <img class="custom__clear" src="../images/SVG/clear_logo.svg" alt="">
-            <img class="custom__delete" src="../images/SVG/trash.svg" alt="">
+            <div class="custom__panelbtn">
+              <img src="../images/SVG/passer_dessous.svg" alt="">
+              <p class="paragraph">
+                Reculer
+              </p>
+            </div>
+            <div class="custom__panelbtn custom__forward">
+              <img src="../images/SVG/passer_dessus.svg" alt="">
+              <p class="paragraph">
+                Avancer
+              </p>
+            </div>
+            <div class="custom__clear custom__panelbtn">
+              <img src="../images/SVG/clear_logo.svg" alt="">
+              <p class="paragraph">
+                Tout effacer
+              </p>
+            </div>
+            <div class="custom__panelbtn custom__delete">
+              <img src="../images/SVG/trash.svg" alt="">
+              <p class="paragraph">
+                Supprimer
+              </p>
+            </div>
+            
+
           </div>
           <div class="custom__total">
-            <h2 class="subtitle">
+            <h2 class="subtitle custom__price">
               Price TTC
             </h2>
-            <a class="btn custom__next" href="">Suivant</a>
+            <a class="btn custom__next" href="">Ajouter <img src="../images/SVG/cart.svg" alt=""></a>
           </div>
         </div>
       </div>

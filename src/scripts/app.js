@@ -73,7 +73,8 @@ gsap.to('.socialmedias__stars', {
 const burgermenubtn = document.querySelector('.landing__burgermenubtn');
 const burgermenu = document.querySelector('.landing__burgermenu');
 const exit = document.querySelector('.landing__exit');
-
+const aboutusbtn = document.querySelector('.landing__link--aboutus');
+const aboutus = document.querySelector('.aboutus')
 burgermenubtn.addEventListener('click', function(){
   burgermenu.classList.add('active');
 })
@@ -81,6 +82,9 @@ exit.addEventListener('click', function(){
   burgermenu.classList.remove('active');
 })
 
+aboutusbtn.addEventListener('click', function(){
+  aboutus.scrollIntoView({behavior: "smooth"})
+})
 //canvas init
 const canvas = new fabric.Canvas('customcanvas',{
     width: 900,
@@ -91,8 +95,9 @@ const canvas = new fabric.Canvas('customcanvas',{
 //bouton supprimer et effacer le canvas
 const deletebtn = document.querySelector('.custom__delete');
 const clearbtn = document.querySelector('.custom__clear');
-
-if(deletebtn&&clearbtn){
+const backward = document.querySelector('.custom__backward');
+const forward = document.querySelector('.custom__forward');
+if(deletebtn&&clearbtn&&forward&&backward){
   deletebtn.addEventListener('click', function(){
     let obj = canvas.getActiveObject();
     canvas.remove(obj);
@@ -103,28 +108,40 @@ if(deletebtn&&clearbtn){
       canvas.remove(obj);
     })
   });
+  backward.addEventListener('click', function(){
+    let obj = canvas.getActiveObject();
+    canvas.sendBackwards(obj);
+  });
+  forward.addEventListener('click', function(){
+    let obj = canvas.getActiveObject();
+    canvas.bringForward(obj);
+  });
 }
 
 //étapes customisation
 const steps = document.querySelectorAll(".custom__step");
 const pages = document.querySelectorAll('.custom__page');
-steps.forEach((step, index) => {
-  if(index === 0){
-    pages[index].classList.remove('hidden');
-  }else{
-    pages[index].classList.add('hidden');  
-  }
-  step.addEventListener('click', function(btn){
-    steps.forEach(function(step){
-      step.classList.remove('active');
-    }) 
+
+if(steps&&pages){
+  steps.forEach((step, index) => {
+    if(index === 0){
+      pages[index].classList.remove('hidden');
+    }else{
+      pages[index].classList.add('hidden');  
+    }
+    step.addEventListener('click', function(btn){
+      steps.forEach(function(step){
+      step.classList.remove('selected');
+    });
     pages.forEach(function(page){
       page.classList.add('hidden');
-  })
+    });
     pages[index].classList.remove('hidden');
-    steps[index].classList.add('active');
-  })
-})
+    steps[index].classList.add('selected');
+    });
+  });
+};
+
 
 //éditeur canvas
 let currentnailart = null;
@@ -146,56 +163,102 @@ let basecolor = null;
 let decostate = null;
 let is2d = true;
 
+
 fetch('../data/data.json')
   .then((response)=>{
     return response.json();
   })
   .then((data)=>{
+    //filtrer les produits
+    const select = document.querySelector('.productsgallery__filter');
+    const input = document.querySelector('.productsgallery__select');
+    const result = document.querySelector('.productsgallery__options');
+    const h3 = document.querySelector('.productsgallery__h2');
+    if(select&&input&&result&&h3){
+      select.addEventListener('click', function(e){
+        e.preventDefault();
+        result.textContent = " ";
+        h3.innerText = " ";
+        const collections = input.value;
+
+        data[collections].forEach(function(item){
+          const createdelement = {
+            p: document.createElement('p'),
+            h3: document.createElement('h3'),
+            img: document.createElement('img'),
+            div: document.createElement('div')
+          };
+          h3.innerText = collections;
+          createdelement.p.classList.add('paragraph');      
+          createdelement.h3.classList.add('overtitle');
+          createdelement.p.innerText = item.name;
+          createdelement.h3.innerText = item.priceM +"€";
+          createdelement.img.classList.add('products__img');
+          createdelement.img.src = item.img;
+          createdelement.div.classList.add('cell');
+          createdelement.div.appendChild(createdelement.img);
+          createdelement.div.appendChild(createdelement.p);
+          createdelement.div.appendChild(createdelement.h3);
+          result.appendChild(createdelement.div);
+          createdelement.div.addEventListener('click', function(product){
+            window.location.href = "../pages/set.html"
+            localStorage.setItem('name',JSON.stringify(item));
+          });
+        });
+      });
+    }
+
+    //pages produit individuel
+    const set = localStorage.getItem('name');
+
+    
+
+
+
     //ajouts formes
     data.molds.forEach(function(item){
-      
-      const createdelement = {
-        p: document.createElement('p'),
-        img: document.createElement('img'),
-        div: document.createElement('div')
-      };
-      createdelement.p.classList.add('paragraph');
-      createdelement.p.innerText = item.name;
-      createdelement.img.classList.add('choice');
-      createdelement.img.src = item.img;
-      createdelement.div.classList.add('cell');
-      createdelement.div.appendChild(createdelement.img);
-      createdelement.div.appendChild(createdelement.p);
-      shapesrow.appendChild(createdelement.div);
-      
-      
-      createdelement.div.addEventListener('click', function(){
-        shapestate = item;
-        addMold(item[currentsize]);
-      })
-    
+      if(shapesrow){
+        const createdelement = {
+          p: document.createElement('p'),
+          img: document.createElement('img'),
+          div: document.createElement('div')
+        };
+        createdelement.p.classList.add('paragraph');
+        createdelement.p.innerText = item.name;
+        createdelement.img.classList.add('choice');
+        createdelement.img.src = item.img;
+        createdelement.div.classList.add('cell');
+        createdelement.div.appendChild(createdelement.img);
+        createdelement.div.appendChild(createdelement.p);
+        shapesrow.appendChild(createdelement.div);
+
+        createdelement.div.addEventListener('click', function(){
+          shapestate = item;
+          addMold(item[currentsize]);
+        });
+      }
     });
     //changement tailles
     sizes.forEach(function(size){
       size.addEventListener('click', function(){
         if(size.classList.contains('custom__size--xs')){
-            currentsize = "xs";
-          }else if(size.classList.contains('custom__size--s')){
-            currentsize = "s";
-          }else if(size.classList.contains('custom__size--m')){
-            currentsize = "m";
-          }else if(size.classList.contains('custom__size--l')){
-            currentsize = "l";
-          } 
-          addMold(shapestate[currentsize])
-          
-        })
+          currentsize = "xs";
+        }else if(size.classList.contains('custom__size--s')){
+          currentsize = "s";
+        }else if(size.classList.contains('custom__size--m')){
+          currentsize = "m";
+        }else if(size.classList.contains('custom__size--l')){
+          currentsize = "l";
+        } 
+        addMold(shapestate[currentsize]);  
       });
+    });
     //couleur base
     data.base.forEach(function(item){
         basecolor = item
     })
     data.colors.forEach(function(item){
+      if(basecolorrow){
         const coloricon = document.createElement('img');
         coloricon.src = item.img;
         coloricon.classList.add('color');
@@ -205,100 +268,108 @@ fetch('../data/data.json')
             colorstate = item.name
             addBasecolor(basecolor[colorstate]);
           }
-          
         });
-      });
+      }
+    });
     //ajouts nailart
     data.nailart.forEach(function(item){
-      const createdelement = {
+      if(nailartrow){
+        const createdelement = {
         p: document.createElement('p'),
         img: document.createElement('img'),
         div: document.createElement('div')
-      };
-      createdelement.p.classList.add('paragraph');
-      createdelement.img.classList.add('choice');
-      createdelement.div.classList.add('cell');
-      createdelement.div.appendChild(createdelement.img);
-      createdelement.div.appendChild(createdelement.p);
-      nailartrow.appendChild(createdelement.div);
-      createdelement.img.src = item.img;
-      createdelement.p.innerText = item.name;  
-      createdelement.div.addEventListener('click', function(){
-        if(currentmold){
-          nailartstate = item;
-          addNailart(item.white)
-        
-        }
-        
-      })
-    
+        };
+        createdelement.p.classList.add('paragraph');
+        createdelement.img.classList.add('choice');
+        createdelement.div.classList.add('cell');
+        createdelement.div.appendChild(createdelement.img);
+        createdelement.div.appendChild(createdelement.p);
+        nailartrow.appendChild(createdelement.div);
+        createdelement.img.src = item.img;
+        createdelement.p.innerText = item.name;
+        createdelement.div.addEventListener('click', function(){
+          if(currentmold){
+            nailartstate = item;
+            addNailart(item.white)
+          }
+        });
+      }
     });
     //couleurs nailart
     data.colors.forEach(function(item){
-      const coloricon = document.createElement('img');
-      coloricon.src = item.img;
-      coloricon.classList.add('color');
-      nailartcolorrow.appendChild(coloricon);
-      coloricon.addEventListener('click' ,function(){
-        colorstate = item.name
-        addNailart(nailartstate[colorstate]);
-      });
+      if(nailartcolorrow){
+        const coloricon = document.createElement('img');
+        coloricon.src = item.img;
+        coloricon.classList.add('color');
+        nailartcolorrow.appendChild(coloricon);
+        coloricon.addEventListener('click' ,function(){
+          colorstate = item.name
+          addNailart(nailartstate[colorstate]);
+        });
+      }
     });
     //decos2d  
     data.decos2d.forEach(function(item){
-      const createdelement = {
-        p: document.createElement('p'),
-        img: document.createElement('img'),
-        div: document.createElement('div')
-      };
-      createdelement.p.classList.add('paragraph');
-      createdelement.img.classList.add('choice');
-      createdelement.div.classList.add('cell');
-      createdelement.div.appendChild(createdelement.img);
-      createdelement.div.appendChild(createdelement.p);
-      deco2drow.appendChild(createdelement.div);
-      createdelement.img.src = item.img;
-      createdelement.p.innerText = item.name;  
-      createdelement.div.addEventListener('click', function(){
-        is2d = true;
-        decostate = item;
-        
-      });   
+      if(deco2drow){
+        const createdelement = {
+          p: document.createElement('p'),
+          img: document.createElement('img'),
+          div: document.createElement('div')
+        };
+        createdelement.p.classList.add('paragraph');
+        createdelement.img.classList.add('choice');
+        createdelement.div.classList.add('cell');
+        createdelement.div.appendChild(createdelement.img);
+        createdelement.div.appendChild(createdelement.p);
+        deco2drow.appendChild(createdelement.div);
+        createdelement.img.src = item.img;
+        createdelement.p.innerText = item.name;
+
+        createdelement.div.addEventListener('click', function(){
+          is2d = true;
+          decostate = item;
+        });   
+      }       
     });
     //decos3d
     data.decos3d.forEach(function(item){
-      const createdelement = {
-        p: document.createElement('p'),
-        img: document.createElement('img'),
-        div: document.createElement('div')
-      };
-      createdelement.p.classList.add('paragraph');
-      createdelement.img.classList.add('choice');
-      createdelement.div.classList.add('cell');
-      createdelement.div.appendChild(createdelement.img);
-      createdelement.div.appendChild(createdelement.p);
-      deco3drow.appendChild(createdelement.div);
-      createdelement.img.src = item.img;
-      createdelement.p.innerText = item.name;  
-      createdelement.div.addEventListener('click', function(){
-        is2d = false;
-        decostate = item;
-      });      
+      if(deco3drow){
+        const createdelement = {
+          p: document.createElement('p'),
+          img: document.createElement('img'),
+          div: document.createElement('div')
+        };
+        createdelement.p.classList.add('paragraph');
+        createdelement.img.classList.add('choice');
+        createdelement.div.classList.add('cell');
+        createdelement.div.appendChild(createdelement.img);
+        createdelement.div.appendChild(createdelement.p);
+        deco3drow.appendChild(createdelement.div);
+        createdelement.img.src = item.img;
+        createdelement.p.innerText = item.name;
+
+        createdelement.div.addEventListener('click', function(){
+          is2d = false;
+          decostate = item;
+        });   
+      } 
     });
     //couleurs decos
     data.colors.forEach(function(item){
-      const coloricon = document.createElement('img');
-      coloricon.src = item.img;
-      coloricon.classList.add('color');
-      decocolorrow.appendChild(coloricon);
-      coloricon.addEventListener('click' ,function(){
-        colorstate = item.name;
-        if(is2d === true){
-          addDecos2d(decostate[colorstate]);
-        }else if(is2d === false){
-          addDecos3d(decostate[colorstate]);
-        }  
-      });
+      if(decocolorrow){
+        const coloricon = document.createElement('img');
+        coloricon.src = item.img;
+        coloricon.classList.add('color');
+        decocolorrow.appendChild(coloricon);
+        coloricon.addEventListener('click' ,function(){
+          colorstate = item.name;
+          if(is2d === true){
+            addDecos2d(decostate[colorstate]);
+          }else if(is2d === false){
+            addDecos3d(decostate[colorstate]);
+          }
+        });
+      }
     });
   });
 
@@ -394,20 +465,24 @@ function resize () {
   const canvasbox = document.querySelector('.canvas_box')
   const canvasHeight = 525;
   const canvasWidth = 900;
-  const width = canvasbox.clientWidth;
-  const ratio = canvasWidth / canvasHeight; 
+  if(canvasbox&&canvasHeight&&canvasWidth){
+    const width = canvasbox.clientWidth;
+    const ratio = canvasWidth / canvasHeight; 
 
-  const scale = width / canvasWidth;
+    const scale = width / canvasWidth;
 
-  canvas.setDimensions({
-    width: width,
-    height: width / ratio
-  });
+    canvas.setDimensions({
+      width: width,
+      height: width / ratio
+    });
 
-  canvas.setZoom(scale);
-  canvas.renderAll();
+    canvas.setZoom(scale);
+    canvas.renderAll();
 
+  }
+  
 }
 
 window.addEventListener('resize', resize);
-resize
+resize();
+//pages produits commandes

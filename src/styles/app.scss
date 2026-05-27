@@ -22,11 +22,11 @@ body{
     flex-flow: column-reverse;
     height: 100vh;
     width: 80%;
-    padding: 7.5% 0 ;
+    padding: 7.5% 0 5%;
     margin: 0 auto;
-    gap: $space-l;
+    gap: $space-2xs;
     &__left{
-        height: 55%;
+        height: 50%;
         width: 100%;
         margin: 0 auto;
     }
@@ -34,7 +34,7 @@ body{
         gap: $space-s;
         width: 100%;
         margin: 15% 0 0;
-        height: 60%;
+        height: 40%;
     }
     &__optionpanel{
         box-sizing: border-box;
@@ -62,7 +62,7 @@ body{
         align-items: center;
         margin-bottom: $space-xs;
         & img{
-            width: $space-m;
+            height: $space-xl;
             margin-bottom: $space-xs;
         }
         &:hover{
@@ -80,14 +80,20 @@ body{
         opacity: 0.6;
         
     }
+    &__price{
+        font-size: $step-1;
+    }
     &__page{
         display: flex;
         flex-flow: column wrap;
         align-items: center;
+        overflow-y: auto;
     }
     &__options{
         box-sizing: border-box;
-        width: 70%;
+        width: 100%;
+        padding: 0 $space-s;
+        overflow-y: auto;
     } 
     &__viewport{
         border-radius: $border-radius-section;
@@ -101,11 +107,33 @@ body{
         align-items: last baseline;
         justify-content: space-between;
         text-align: end;
-        margin-top: $space-s;
+        margin: $space-2xs 0 0;
+        align-self: flex-end;
     }
     &__controlpanel{
         width: 70%;
         height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: $space-2xs;
+    }
+    &__panelbtn{
+        transition: 0.1s;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        padding: $space-2xs;
+        text-align: center;
+        border-radius: $border-radius;
+        & img{
+            height: $space-m;
+        }
+        &:hover{
+            cursor: pointer;
+            transition: 0.1s;
+            background-color: white;
+        }
     }
     &__next{
         margin: 0;
@@ -280,16 +308,16 @@ body{
 }
 .theme{
     box-sizing: border-box;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     height: 100vh;
-    padding: 10% 0 0;
+    padding: 20% 0 0;
     &__grid{
-        height: 80%;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         gap: $space-xs;
+        height: 100%;
 
     }
     &__collection{
@@ -303,22 +331,59 @@ body{
 
         }
         &--corporategirly{
-            grid-column-start: 3;
+            grid-row-start: 2;
         }
         &--summershine{
-            grid-column-start: 3;
             grid-row-start: 2;
 
         }
         &--springfloral{
-            grid-column-start: 2;
-            grid-row-start: 2;
+            grid-row-start: 3;
 
         }
         &--timelessclassics{
-            grid-column-start: 1;
-            grid-row-start: 2;
+            grid-row-start: 3;
         }
+    }
+}
+.productsgallery{
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+    height: 100vh;
+    padding: 20% 0 0;
+    &__filter{
+        font-size: $step-2;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        padding: $space-xs $space-m;
+        gap: $space-xs;
+        width: fit-content;
+        margin-bottom: $space-l;
+    }
+    &__select{
+        transition: 0.1s;
+        font-size: $step-0;
+        border: none;
+        padding: $space-2xs;
+        border-radius: $border-radius;
+        background: none;
+        &:hover{
+            transition: 0.1s;
+            background-color: white;
+        }
+    }
+    &__btn{
+        border: none;
+        font-size: $step-0;
+    }
+    &__options{
+        padding: $space-m 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: $space-m;
     }
 }
 .exemples{
@@ -440,6 +505,10 @@ body{
         justify-content: center;
         gap: $space-m;
     }
+    &__cta{
+        margin-top: $space-m;
+        justify-self: center;
+    }
     &__stars{
         width: 100vw;
         height: 150vh;
@@ -480,8 +549,8 @@ body{
     margin-bottom: $space-s;
 }
 .choice{
-    width: $space-2xl;
-    height: $space-2xl;
+    width: 2.13em;
+    height: 2.13em;
     border-radius: $border-radius;
     border: solid $primary 2px;
 }
@@ -496,6 +565,9 @@ body{
 .icon{
     height: $step-1;
     margin-left: 0;
+}
+.selected{
+    background-color: white;
 }
 .section{
     box-sizing: border-box;
@@ -522,9 +594,6 @@ body{
     gap: $space-xs; //changer en 2XS
     text-align: center;
 }
-.active{
-    background-color: white;
-}
 
 .mobile{
     display: block;
@@ -547,7 +616,97 @@ body{
     }
     
 }
-@media(min-width : 1200px){
+@media(min-width : 600px){
+    .custom{
+        &__right{
+        height: 50%;
+        margin: 20% 0 0;
+        }
+        &__left{
+            height: 45%;
+        }
+    }
+    
+}
+
+@media(min-width : 800px){
+    .custom{
+        &__right{
+        height: 55%;
+        margin: 15% 0 0;
+        }
+        &__left{
+            height: 40%;
+        }
+    }
+    
+}
+@media(min-width : 900px){
+    .custom{
+        padding: 2.5% 0;
+        &__right{
+        height: 60%;
+        margin: 10% 0 0;
+        }
+        &__left{
+            height: 40%;
+            margin: 0;
+        }
+    }
+    .theme{
+        
+        box-sizing: border-box;
+        width: 70%;
+        margin: 0 auto;
+        height: 100vh;
+        padding: 10% 0 0;
+        &__grid{
+        height: 80%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: $space-xs;
+
+    }
+    &__collection{
+        border-radius: $border-radius-section;
+        background-color: aqua;
+        padding: $space-s;
+        display: flex;
+        align-items: end;
+        &--loudluxury{
+            grid-column: span 2 / span 2;
+
+        }
+        &--corporategirly{
+            grid-column-start: 3;
+            grid-row-start: 1;
+        }
+        &--summershine{
+            grid-column-start: 3;
+
+        }
+        &--springfloral{
+            grid-column-start: 2;
+            grid-row-start: 2;
+
+        }
+        &--timelessclassics{
+            grid-column-start: 1;
+            grid-row-start: 2;
+        }
+    }
+    }
+    .productsgallery{
+        box-sizing: border-box;
+        width: 70%;
+        margin: 0 auto;
+        height: 100vh;
+        padding: 10% 0 0;
+    }
+    
+}
+@media(min-width : 1000px){
 
     .landing{
         &__stars{
@@ -597,6 +756,7 @@ body{
             display: none;
         }
     }
+    
     .section{
         width: 70%;
     }
@@ -620,51 +780,7 @@ body{
             height: 30vh;
         }
     }
-    .custom{
-        display: flex;
-        flex-flow: row nowrap;
-        &__left{
-        width: 40vw;
-        height: fit-content;
-        }
-        &__optionpanel{
-        display: flex;
-        flex-flow: row nowrap;
-        
-        align-items: start;
-        }
-        
-        &__options{
-            width: 65%;
-            padding: $space-l 0 $space-m $space-xs ;
-        } 
-        &__sidenav{
-        margin: $space-l 0;
-        width: 25%;
-        border-bottom: 0;
-        border-right: solid 2px $primary;
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center;
-        }
-        &__right{
-        gap: $space-s;
-        width: 60vw;
-        height: 100%;
-        margin: 0;
-        }
-        &__page{
-            align-items: start;
-        }
     
-    }
-    /*.canvas-container{
-        gap: $space-s;
-        width: 100%;
-        margin: 0 auto;
-        height: 50%;
-    }*/
     .socialmedias{
         &__stars{
             height: 125vh;
@@ -737,6 +853,59 @@ body{
             gap: $space-m;
         }
     }
+    @media(min-width : 1200px){
+    .custom{
+        padding: 7.5% 0 2.5% 0;
+        &__left{
+        width: 40vw;
+        height: fit-content;
+        }
+    }
+    .custom{
+        display: flex;
+        flex-flow: row nowrap;
+        gap: $space-l;
+        &__left{
+        width: 40vw;
+        height: fit-content;
+        }
+        &__optionpanel{
+        display: flex;
+        flex-flow: row nowrap;
+        
+        align-items: start;
+        }
+        &__bottom{
+            margin-top: $space-s;
+        }
+        
+        &__options{
+            width: 65%;
+            padding: $space-l 0 $space-m $space-xs ;
+        } 
+        &__sidenav{
+        margin: $space-l 0;
+        width: 25%;
+        border-bottom: 0;
+        border-right: solid 2px $primary;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        }
+        &__right{
+        gap: $space-s;
+        width: 60vw;
+        height: 100%;
+        margin: 0;
+        }
+        &__page{
+            align-items: start;
+        }
+    
+    }
+    
+}
     
 }
 .notfixed{
