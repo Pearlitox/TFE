@@ -164,7 +164,7 @@ let decostate = null;
 let is2d = true;
 
 
-fetch('../data/data.json')
+fetch('/assets/data/data.json')
   .then((response)=>{
     return response.json();
   })
@@ -174,8 +174,10 @@ fetch('../data/data.json')
     const input = document.querySelector('.productsgallery__select');
     const result = document.querySelector('.productsgallery__options');
     const h3 = document.querySelector('.productsgallery__h2');
+
+
     if(select&&input&&result&&h3){
-      select.addEventListener('click', function(e){
+      select.addEventListener('submit', function(e){
         e.preventDefault();
         result.textContent = " ";
         h3.innerText = " ";
@@ -194,7 +196,7 @@ fetch('../data/data.json')
           createdelement.p.innerText = item.name;
           createdelement.h3.innerText = item.priceM +"€";
           createdelement.img.classList.add('products__img');
-          createdelement.img.src = item.img;
+          createdelement.img.src = item.imgset;
           createdelement.div.classList.add('cell');
           createdelement.div.appendChild(createdelement.img);
           createdelement.div.appendChild(createdelement.p);
@@ -209,12 +211,65 @@ fetch('../data/data.json')
     }
 
     //pages produit individuel
-    const set = localStorage.getItem('name');
-
     
-
-
-
+    const set = JSON.parse(localStorage.getItem('name'));
+    const title = document.querySelector('.set__name');
+    const priceset = document.querySelector('.set__price');
+    const collection = document.querySelector('.set__collection');
+    const quantity = document.querySelector('set__quantity');
+    const slides = document.querySelectorAll('.set__slide'); 
+    const slide1 = document.querySelector('.set__slide--1');
+    const slide2 = document.querySelector('.set__slide--2');
+    const slide3 = document.querySelector('.set__slide--3');
+    let slideIndex = 0;
+    const prev = document.querySelector('.set__prev');
+    const next = document.querySelector('.set__next');
+    if(title&&priceset&&collection&&slides&&slide1&&slide2&&slide3&&prev&&next){
+      title.innerText = set.name
+      priceset.innerText = set.priceM +"€"
+      collection.innerText = set.collection
+    
+      //slider
+      const productimf = document.createElement('img');
+      productimf.src = set.imgmodel
+      
+      slide1.src = set.imgset;
+      slide2.src = set.imghover;
+      slide3.src = set.imgmodel;
+    
+      initSlider();
+    
+      function initSlider(){
+        slides[slideIndex].classList.add('show');
+      }
+      prev.addEventListener('click', function(){
+        prevSlide();
+      });
+      next.addEventListener('click', function(){
+        nextslide();
+      });
+      function showSlide(index){
+        if( index >= slides.length){
+          slideIndex = 0;
+        }else if(index < 0){
+          slideIndex = slides.length -1;
+        }
+        slides.forEach(slide => {
+          slide.classList.remove('show');
+        });
+        slides[slideIndex].classList.add('show');
+      }
+      function prevSlide(){
+        slideIndex--;
+        showSlide(slideIndex)
+      }
+    
+      function nextslide(){
+        slideIndex++;
+        showSlide(slideIndex);
+      }
+    }
+    
     //ajouts formes
     data.molds.forEach(function(item){
       if(shapesrow){
@@ -482,6 +537,7 @@ function resize () {
   }
   
 }
+
 
 window.addEventListener('resize', resize);
 resize();

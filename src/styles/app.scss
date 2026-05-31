@@ -15,8 +15,6 @@ body{
     &__size:hover{
         cursor: pointer;
     }
-    background: #FF00A138;
-    background: radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
     box-sizing: border-box;
     display: flex;
     flex-flow: column-reverse;
@@ -73,12 +71,11 @@ body{
 
     }
     &__stars{
-        background: url(../assets/images/star_green.webp), url(../assets/images/star_pastelblue.webp);
+        background: url(../assets/images/star_green.webp), url(../assets/images/star_pastelblue.webp), radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
         background-position: -20% -30%, 150% 120%;
         background-repeat: no-repeat;
-        background-size: 70%, 80%;
-        opacity: 0.6;
-        
+        background-size: 70%, 80%, 100%;
+        opacity: 0.8;
     }
     &__price{
         font-size: $step-1;
@@ -263,15 +260,33 @@ body{
         box-sizing: border-box;
         width: 100%;
         border-radius: $border-radius-section;
-        height: 10vh;
+        height: 20vh;
         display: flex;
         flex-flow: column;
         justify-content: end;
-        padding: $space-s;
-        background-color: red;
+        padding: $space-s;;
+        
+        &--1{
+            background: url(../assets/images/summershine_thumbnail.webp) no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        &--2{
+            background: url(../assets/images/chromemadness_thumbnail.webp) no-repeat;
+            background-position: top;
+            background-size: cover;
+
+        }
+        &--3{
+            background: url(../assets/images/springfloral_thumbnail.webp) no-repeat;
+            background-position: center;
+            background-size: cover;
+
+        }
         &:hover{
             cursor: pointer;
         }
+
         
 
     }
@@ -415,11 +430,18 @@ body{
         height: 10%;
         width: 100%;
         background-color: aqua;
+        overflow: hidden;
+        & img{
+            width: 100%;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         &:hover{
             transition: 0.2s;
             height: 40%;
             cursor: pointer;
-
         }
     }
     &__star{
@@ -575,10 +597,6 @@ body{
     width: 100%;
     margin: 0 auto;
 }
-.active{
-    transition: 1s;
-    transform: translate(0vw);
-}
 .textandcta{
     display: flex;
     flex-flow: column wrap;
@@ -594,7 +612,115 @@ body{
     gap: $space-xs; //changer en 2XS
     text-align: center;
 }
-
+.set{
+    display: flex;
+    flex-flow: column;
+    gap: $space-l;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20%;
+    &__widthoptions{
+        display: flex;
+        flex-flow: row;
+    }
+    &__slider{
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;    
+    }
+    &__btns{
+        box-sizing: border-box;
+    }
+    &__buy{
+        background-color: $secondary;
+    }
+    &__slide{
+        box-sizing: border-box;
+        aspect-ratio: 1 / 1;
+        border-radius: $border-radius-img;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transition: 0.2s;
+        &--1{
+            background-color: aqua;
+        }
+        &--2{
+            background: rgb(136, 42, 42);
+            
+        }
+        &--3{
+            background: black;
+        }
+    }
+    &__collectionrating{
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    &__rating{
+        font-size: $step-1;
+        display: flex;
+        flex-flow: row;
+        gap: $space-2xs;
+        align-items: baseline;
+    }
+    &__icon{
+        height: $step-1;
+    }
+    &__text{
+        width: 100%;
+    }
+    &__btn{
+        font-size: $step-1;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    &__quantity{
+        border-radius: $border-radius;
+        padding: $space-2xs $space-s;
+    }
+    &__pricequantity{
+        padding-bottom: $space-l;
+        display: flex;
+        flex-flow: row;
+        align-items: baseline;
+        justify-content: space-between;
+        border-bottom: solid $primary 2px;
+    }
+    &__width{
+        padding: $space-l 0;
+    }
+    &__comment{
+        box-sizing: border-box;
+        width: 100%;
+        height: $space-2xl;
+        padding: $space-2xs $space-s;
+    }
+    &__nextprev{
+        box-sizing: border-box;
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        padding: $space-s;
+    }
+    &__next{
+        height: fit-content;
+        border: none;
+    }
+    
+    &__prev{
+        height: fit-content;
+        border: none;
+    }
+}
 .mobile{
     display: block;
 }
@@ -615,6 +741,15 @@ body{
         z-index: 5;
     }
     
+}
+
+.active{
+    transition: 1s;
+    transform: translate(0vw);
+}
+.show{
+    transition: 0.2s;
+    opacity: 1;
 }
 @media(min-width : 600px){
     .custom{
@@ -637,6 +772,20 @@ body{
         }
         &__left{
             height: 40%;
+        }
+    }
+    .set{
+        padding-top: 10%;
+        display: flex;
+        flex-flow: row;
+        align-items: start;
+        &__btn{
+            font-size: $step-0;
+        }
+        &__btns{
+            display: flex;
+            flex-flow: row;
+            gap: $space-s;
         }
     }
     
@@ -668,6 +817,7 @@ body{
         gap: $space-xs;
 
     }
+    
     &__collection{
         border-radius: $border-radius-section;
         background-color: aqua;

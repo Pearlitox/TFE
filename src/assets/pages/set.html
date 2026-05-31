@@ -8,6 +8,7 @@
     <script src="../../scripts/app.js" defer></script>
 </head>
 <body>
+  <div class="custom__stars stars"></div>
     <nav class="landing__nav glass">
       <a href="../../index.html">
         <img class="logo" src="../images/SVG/icon_color.svg" alt="Icone PearlyNails" />
@@ -33,17 +34,69 @@
         <li class="landing__link landing__link--aboutus"><a href="../../index.html">A propos de nous</a></li>
       </ul>
     </div>
-    <section class="set">
+    <section class="set section">
         <div class="set__slider">
-            <div class="set__slide">
-
+          <div class="set__nextprev">
+            <button class="set__prev btn">&#10094</button>
+            <button class="set__next btn">&#10095</button>
+          </div>
+          
+          <img class="set__slide set__slide--1" src="" alt="">
+          
+          <img class="set__slide set__slide--2" src="" alt="">
+          
+          <img class="set__slide set__slide--3" src="" alt="">
+          
+        </div>
+        <div class="set__text">
+            <div></div>
+            <div class="set__collectionrating">
+              <a href="produits.html">
+                <p class="paragraph set__collection">Collection</p>
+              </a>
+              <div class="set__rating">
+                <p class="set__paragraph">
+                  4.5 
+                </p>
+                <img class="set__icon" src="../images/SVG/star_rating.svg" alt="">
+              </div>
             </div>
-            <div class="set__slide">
-
+            
+            <h2 class="subtitle set__name">
+                Titre
+            </h2>
+            <div class="set__pricequantity">
+              <h2 class="overtitle set__price">
+                Prix
+              </h2>
+              <input class="set__quantity glass" min="1" max="10" type="number" name="quantity" id="quantity" value="1">
             </div>
-            <div class="set__slide">
-
+            <div class="set__width">
+              <h3 class="overtitle">
+                Largeur des ongles(en mm)
+              </h3>
+              <p>
+                comment prendre ma taille ?
+              </p>
+              <div class="set__widthoptions">
+                
+                <p class="btn">XS</p>
+                <p class="btn">S</p>
+                <p class="btn">M</p>
+                <p class="btn">L</p>
+                
+              </div>
+              
             </div>
+            <div class="set__btns">
+              <p class="btn set__btn">
+                Ajouter au panier
+              </p>
+              <p class="btn set__btn set__buy">
+                Acheter
+              </p>
+            </div>
+            
         </div>
     </section>
 </body>

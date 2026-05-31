@@ -513,162 +513,133 @@
         "Timeless Classics":[
             {
                 "name": "French manucure",
-                "imgset": "",
-                "imghover" :"",
-                "imgmodel": "",
-                "priceXs": "15",
-                "priceS": "17.50",
+                "imgset": "../data/sets/frenchmanucureimg.webp",
+                "imghover" :"../data/sets/frenchmanucureimghover.webp",
+                "imgmodel": "../data/sets/frenchmanucureimgmodel.webp",
                 "priceM": "20",
-                "priceL": "22.50"
+                "collection": "Timeless Classics"
+                
             },
             {
                 "name": "Babyboomer",
                 "imgset": "",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "15",
-                "priceS": "17.50",
                 "priceM": "20",
-                "priceL": "22.50"
+                "collection": "Timeless Classics"
             },
             {
                 "name": "White chrome",
-                "imgset": "",
-                "imghover" :"",
-                "imgmodel": "",
-                "priceXs": "15",
-                "priceS": "17.50",
+                "imgset": "../data/sets/whitechromeimg.webp",
+                "imghover" :"../data/sets/whitechromeimghover.webp",
+                "imgmodel": "../data/sets/whitechromeimgmodel.webp",
                 "priceM": "20",
-                "priceL": "22.50"
+                "collection": "Timeless Classics"
             }
         ],
         "Loud Luxury":[
             {
                 "name": "Red bottoms",
-                "imgset": "",
-                "imghover" :"",
-                "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
+                "imgset": "../data/sets/redbottomsimg.webp",
+                "imghover" :"../data/sets/redbottomsimghover.webp",
+                "imgmodel": "../data/sets/redbottomsimgmodel.webp",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Loud Luxury"
             },
             {
                 "name": "Midas' greed",
-                "imgset": "",
-                "imghover" :"",
-                "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
+                "imgset": "../data/sets/midasgreedimg.webp",
+                "imghover" :"../data/sets/midasgreedimghover.webp",
+                "imgmodel": "../data/sets/midasgreedimgmodel.webp",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Loud Luxury"
             },
             {
                 "name": "Four petals",
                 "imgset": "",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Loud Luxury"
             }
         ],
         "Summershine":[
             {
-                "name": "Beach club",
-                "imgset": "",
-                "imghover" :"",
-                "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
+                "name": "Tropical trip",
+                "imgset": "../data/sets/tropicaltripimg.webp",
+                "imghover" :"../data/sets/tropicaltripimghover.webp",
+                "imgmodel": "../data/sets/tropicaltripimgmodel.webp",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Summershine"
             },
             {
-                "name": "Earthy",
-                "imgset": "",
-                "imghover" :"",
-                "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
+                "name": "Sunset Sweetness",
+                "imgset": "../data/sets/sunsetsweetnessimg.webp",
+                "imghover" :"../data/sets/sunsetsweetnessimghover.webp",
+                "imgmodel": "../data/sets/sunsetsweetnessimgmodel.webp",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Summershine"
             },
             {
                 "name": "Mother-of-pearl",
                 "imgset": "",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Summershine"
             }
         ],
         "Spring Floral":[
             {
                 "name": "Flower princess",
-                "imgset": "",
+                "imgset": "../data/sets/flowerprincessimg.webp",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Spring Floral"
             },
             {
                 "name": "Spring wedding",
                 "imgset": "",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Spring Floral"
             },
             {
-                "name": "Polka dots",
-                "imgset": "",
-                "imghover" :"",
+                "name": "Cherry Blossom",
+                "imgset": "../data/sets/cherryblossomimg.webp",
+                "imghover" :"../data/sets/cherryblossomimghover.webp",
                 "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Spring Floral"
             }
         ],
         
         "Chrome Madness":[
             {
                 "name": "Sterling silver",
-                "imgset": "",
+                "imgset": "../data/sets/sterlingsilverimg.webp",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "35",
-                "priceS": "37.50",
                 "priceM": "39",
-                "priceL": "41.50"
+                "collection": "Chrome Madness"
             },
             {
                 "name": "Holochrome",
                 "imgset": "",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "35",
-                "priceS": "37.50",
                 "priceM": "39",
-                "priceL": "41.50"
+                "collection": "Chrome Madness"
             },
             {
                 "name": "Starry nights",
                 "imgset": "",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceXs": "32.50",
-                "priceS": "35",
                 "priceM": "37.50",
-                "priceL": "35"
+                "collection": "Chrome Madness"
             }
         ]
         
