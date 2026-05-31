@@ -510,7 +510,7 @@
             }
             
         ], 
-        "Timeless Classics":[
+        "timelessclassics":[
             {
                 "name": "French manucure",
                 "imgset": "../data/sets/frenchmanucureimg.webp",
@@ -537,7 +537,7 @@
                 "collection": "Timeless Classics"
             }
         ],
-        "Loud Luxury":[
+        "loudluxury":[
             {
                 "name": "Red bottoms",
                 "imgset": "../data/sets/redbottomsimg.webp",
@@ -563,33 +563,33 @@
                 "collection": "Loud Luxury"
             }
         ],
-        "Summershine":[
+        "summershine":[
             {
                 "name": "Tropical trip",
-                "imgset": "../data/sets/tropicaltripimg.webp",
-                "imghover" :"../data/sets/tropicaltripimghover.webp",
-                "imgmodel": "../data/sets/tropicaltripimgmodel.webp",
+                "imgset": "/assets/data/sets/tropicaltripimg.webp",
+                "imghover" :"/assets/data/sets/tropicaltripimghover.webp",
+                "imgmodel": "/assets/data/sets/tropicaltripimgmodel.webp",
                 "priceM": "37.50",
                 "collection": "Summershine"
             },
             {
                 "name": "Sunset Sweetness",
-                "imgset": "../data/sets/sunsetsweetnessimg.webp",
-                "imghover" :"../data/sets/sunsetsweetnessimghover.webp",
-                "imgmodel": "../data/sets/sunsetsweetnessimgmodel.webp",
+                "imgset": "/assets/data/sets/sunsetsweetnessimg.webp",
+                "imghover" :"/assets/data/sets/sunsetsweetnessimghover.webp",
+                "imgmodel": "/assets/data/sets/sunsetsweetnessimgmodel.webp",
                 "priceM": "37.50",
                 "collection": "Summershine"
             },
             {
                 "name": "Mother-of-pearl",
-                "imgset": "",
-                "imghover" :"",
-                "imgmodel": "",
+                "imgset": "/assets/data/sets/motherofpearlimg.webp",
+                "imghover" :"/assets/data/sets/motherofpearlimghover.webp",
+                "imgmodel": "/assets/data/sets/motherofpearlimgmodel.webp",
                 "priceM": "37.50",
                 "collection": "Summershine"
             }
         ],
-        "Spring Floral":[
+        "springfloral":[
             {
                 "name": "Flower princess",
                 "imgset": "../data/sets/flowerprincessimg.webp",
@@ -616,7 +616,7 @@
             }
         ],
         
-        "Chrome Madness":[
+        "chromemadness":[
             {
                 "name": "Sterling silver",
                 "imgset": "../data/sets/sterlingsilverimg.webp",

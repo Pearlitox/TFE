@@ -3,6 +3,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 //Animation étoile
+gsap.to('.tutorial__nailfile',{
+  x: 15,
+  y: -10,
+  duration: 0.5,
+  repeat: -1,
+  yoyo: true,
+})
+
 gsap.registerPlugin(ScrollTrigger);
   gsap.to('.landing__stars', {
     yPercent: 10,
@@ -174,7 +182,7 @@ fetch('/assets/data/data.json')
     const input = document.querySelector('.productsgallery__select');
     const result = document.querySelector('.productsgallery__options');
     const h3 = document.querySelector('.productsgallery__h2');
-
+    const productsrow = document.querySelector('.products__options');
 
     if(select&&input&&result&&h3){
       select.addEventListener('submit', function(e){
@@ -182,7 +190,6 @@ fetch('/assets/data/data.json')
         result.textContent = " ";
         h3.innerText = " ";
         const collections = input.value;
-
         data[collections].forEach(function(item){
           const createdelement = {
             p: document.createElement('p'),
@@ -190,25 +197,57 @@ fetch('/assets/data/data.json')
             img: document.createElement('img'),
             div: document.createElement('div')
           };
-          h3.innerText = collections;
+          h3.innerText = item.collection;
           createdelement.p.classList.add('paragraph');      
           createdelement.h3.classList.add('overtitle');
-          createdelement.p.innerText = item.name;
-          createdelement.h3.innerText = item.priceM +"€";
-          createdelement.img.classList.add('products__img');
-          createdelement.img.src = item.imgset;
           createdelement.div.classList.add('cell');
+          
+          createdelement.div.classList.add('products__option');
           createdelement.div.appendChild(createdelement.img);
           createdelement.div.appendChild(createdelement.p);
           createdelement.div.appendChild(createdelement.h3);
+          createdelement.p.innerText = item.name;
+          createdelement.img.src = item.imgset;
+          createdelement.h3.innerText = item.priceM +"€";
+          createdelement.img.classList.add('products__img');
+          result.classList.add('products__options')
           result.appendChild(createdelement.div);
           createdelement.div.addEventListener('click', function(product){
-            window.location.href = "../pages/set.html"
+            window.location.href = "/assets/pages/set.html"
             localStorage.setItem('name',JSON.stringify(item));
           });
         });
       });
     }
+    data.summershine.forEach(function(item){
+      if(productsrow){
+
+      
+      const createdelement = {
+            p: document.createElement('p'),
+            h3: document.createElement('h3'),
+            img: document.createElement('img'),
+            div: document.createElement('div')
+          };
+          createdelement.p.classList.add('paragraph');      
+          createdelement.h3.classList.add('overtitle');
+          createdelement.div.classList.add('cell');
+          createdelement.div.classList.add('products__option');
+          createdelement.div.appendChild(createdelement.img);
+          createdelement.div.appendChild(createdelement.p);
+          createdelement.div.appendChild(createdelement.h3);
+          createdelement.p.innerText = item.name;
+          createdelement.img.src = item.imgset;
+          createdelement.h3.innerText = item.priceM +"€";
+          createdelement.img.classList.add('products__img');
+          productsrow.appendChild(createdelement.div);
+          createdelement.div.addEventListener('click', function(product){
+            window.location.href = "/assets/pages/set.html"
+            localStorage.setItem('name',JSON.stringify(item));
+          });
+      }    
+    })
+
 
     //pages produit individuel
     

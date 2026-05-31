@@ -267,20 +267,35 @@ body{
         padding: $space-s;;
         
         &--1{
-            background: url(../assets/images/summershine_thumbnail.webp) no-repeat;
+            transition: 0.2s;
+            background: linear-gradient(180deg,rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/summershine_thumbnail.webp) no-repeat;
             background-position: center;
-            background-size: cover;
+            background-size: 100%;
+            &:hover{
+                transition: 0.2s;
+                background-size: 110%;
+            }
         }
         &--2{
-            background: url(../assets/images/chromemadness_thumbnail.webp) no-repeat;
+            transition: 0.2s;
+            background: linear-gradient(180deg,rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/chromemadness_thumbnail.webp) no-repeat;
             background-position: top;
-            background-size: cover;
+            background-size: 100%;
+            &:hover{
+                transition: 0.2s;
+                background-size: 110%;
+            }
 
         }
         &--3{
-            background: url(../assets/images/springfloral_thumbnail.webp) no-repeat;
+            transition: 0.2s;
+            background: linear-gradient(180deg,rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/springfloral_thumbnail.webp) no-repeat;
             background-position: center;
-            background-size: cover;
+            background-size: 100%;
+            &:hover{
+                transition: 0.2s;
+                background-size: 110%;
+            }
 
         }
         &:hover{
@@ -407,40 +422,41 @@ body{
     justify-content: center;
     align-items: center;
     padding: $space-xl;
+    height: 90vh;
     &__slider{
-        height: 55vh;
+        height: 100%;
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: center;
-        padding: $space-2xl;
+        padding: 0 $space-2xl;
     }
     &__pics{
         display: flex;
         flex-flow: column;
-        justify-content: center;
+        justify-content: flex-start;
         gap: $space-xs;
-        height: 100%;
         width: 100%;
-        margin-bottom: $space-l;
+        margin: $space-l 0;
     }
     &__pic{
         transition: 0.2s;
         border-radius: $border-radius-img;
-        height: 10%;
+        height: 5vh;
         width: 100%;
         background-color: aqua;
         overflow: hidden;
         & img{
             width: 100%;
-            aspect-ratio: 1/1;
+            height: 100%;
+            object-fit: cover;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         &:hover{
             transition: 0.2s;
-            height: 40%;
+            height: 15vh;
             cursor: pointer;
         }
     }
@@ -501,18 +517,48 @@ body{
     }
 }
 .aboutus{
-    height: 70vh;
     display: flex;
     flex-direction: row wrap;
     align-items: center;
+    &__imgs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__img{
+        width: 50%;
+        border-radius: $border-radius-img;
+    }
 }
 .tutorial{
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: $space-xl;
+    &__steps{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: baseline;
+        justify-content: center;
+        gap: $space-xl;
+    }
+    &__nailfile{
+        top: -15%;
+        position: absolute;
+    }
+    &__step{
+        position: relative;
+        text-align: center;
+        display: flex;
+        flex-flow: column;
+        gap: $space-s;
+        width: 25%;
+        & img{
+            width: 100%;
+        }
+    }
 }
 .canvas-container{
     gap: $space-s;
@@ -539,10 +585,13 @@ body{
         background-position: right 0px;
         opacity: 0.7;
     }
+    &__option{
+        width: 30%;
+    }
     &__img{
         transition: 0.2s;
-        height: $space-7xl;
-        width: $space-7xl;
+        width: 100%;
+        aspect-ratio: 1/1;
         background-color: green;
         border-radius: $border-radius-img;
         margin-bottom: $space-s;
@@ -972,8 +1021,10 @@ body{
         column-gap: $space-s;
     }
     .exemples{
+        
         &__slider{
             width: 100%;
+            padding: $space-l 0;
         }
         &__pics{
             display: flex;
@@ -987,7 +1038,16 @@ body{
         &__pic{
             height: 100%;
             width: 10%;
+            overflow: hidden;
+            & img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
             &:hover{
+                
+                height: 100%;
+                object-fit: cover;
                 height: 100%;
                 transition: 0.3s;
                 width: 30%;
