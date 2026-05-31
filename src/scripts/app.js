@@ -6,9 +6,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.to('.tutorial__nailfile',{
   x: 15,
   y: -10,
-  duration: 0.5,
+  duration: 0.3,
   repeat: -1,
   yoyo: true,
+  ease: "power1.inOut"
+});
+gsap.to('.tutorial__glue',{
+  
+  y: 15,
+  duration: 1,
+  repeat: -1,
+  yoyo: true,
+})
+
+gsap.to('.tutorial__nail',{
+  
+  y: -30,
+  rotate: 10,
+  duration: 1,
+  repeat: -1,
+  yoyo: true,
+  ease: "power1.inOut"
 })
 
 gsap.registerPlugin(ScrollTrigger);
@@ -30,10 +48,28 @@ gsap.registerPlugin(ScrollTrigger);
       scrub: true,
     },
   });
+  gsap.to('.aboutus__stars', {
+    yPercent: 10,
+    scrollTrigger : {
+      trigger: '.products',
+      start: 'bottom center',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
   gsap.to('.collections__star', {
     yPercent: -40,
     scrollTrigger : {
       trigger: '.landing',
+      start: 'top top',
+      end: "bottom+=2000",
+      scrub: true,
+    },
+  });
+  gsap.to('.aboutus__star', {
+    yPercent: -40,
+    scrollTrigger : {
+      trigger: '.aboutus',
       start: 'top top',
       end: "bottom+=2000",
       scrub: true,
