@@ -136,11 +136,6 @@ body{
         margin: 0;
     }
 }
-.persoviewport{
-    width: 50vw;
-    height: 50vh;
-    background-color: red;
-}
 .landing{
     width: 100vw;
     height: 110vh;
@@ -359,20 +354,37 @@ body{
         &--loudluxury{
             grid-column: span 2 / span 2;
 
+
         }
         &--corporategirly{
             grid-row-start: 2;
+            background: url(../assets/images/chromemadness_thumbnail.webp);
+            background-position: center top;
+            background-size: 110%;
+
         }
         &--summershine{
             grid-row-start: 2;
+            
+            background: url(../assets/images/summershine_thumbnail.webp);
+            background-position: center bottom;
+            background-size: 110%;
+            
 
         }
         &--springfloral{
             grid-row-start: 3;
+            
+            background: url(../assets/images/cherryblossomimghover.webp);
+            background-position: center;
+            background-size: 110%;
 
         }
         &--timelessclassics{
             grid-row-start: 3;
+            background-size: 110%;
+            background: url(../assets/images/frenchmanucureimghover.webp);
+            background-position: center bottom;
         }
     }
 }
@@ -444,7 +456,6 @@ body{
         border-radius: $border-radius-img;
         height: 5vh;
         width: 100%;
-        background-color: aqua;
         overflow: hidden;
         & img{
             width: 100%;
@@ -473,12 +484,12 @@ body{
 }
 .socialmedias{
     &__slider{
-        height: 55vh;
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: center;
         padding: $space-2xl;
+        gap: $space-m;
     }
     &__icon{
         height: $space-l;
@@ -489,7 +500,28 @@ body{
         gap: $space-s;
     }
     &__imgs{
-        height: 30vh;
+        border-radius: $border-radius;
+        display: flex;
+        justify-content: center;
+        gap: $space-m;
+        width: 100%;
+    }
+    &__img{
+        overflow: hidden;
+        border-radius: $border-radius;
+        object-fit: contain;
+        height: 40vh;
+        width: 20%;
+        transition: 0.2s;
+        &:hover{
+            cursor: pointer;
+            transition: 0.2s;
+            transform: translateY(-5%); 
+        }
+        &:active{
+            transition: 0.2s;
+            transform: scale(0.9);
+        }
     }
     &__stars{
         height: 100vh;
@@ -520,6 +552,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: $space-2xl;
     &__imgs{
         display: flex;
         align-items: center;
@@ -620,7 +653,6 @@ body{
         transition: 0.2s;
         width: 100%;
         aspect-ratio: 1/1;
-        background-color: green;
         border-radius: $border-radius-img;
         margin-bottom: $space-s;
         
@@ -719,16 +751,7 @@ body{
         width: 100%;
         opacity: 0;
         transition: 0.2s;
-        &--1{
-            background-color: aqua;
-        }
-        &--2{
-            background: rgb(136, 42, 42);
-            
-        }
-        &--3{
-            background: black;
-        }
+    
     }
     &__collectionrating{
         display: flex;
@@ -805,16 +828,40 @@ body{
     display: none;
 }
 .footer{
-    height: 150vh;
+    color: white;
+    height: 120vh;
     width: 100vw;
     background: url(../assets/images/handgreenfooter.webp), url(../assets/images/handcolorfulfooter.webp), url(../assets/images/handpinkfooter.webp), url(../assets/images/star_green.webp) ,url(../assets/images/star_pastelblue.webp), linear-gradient(180deg, rgba(63, 69, 163, 0) 0%, rgba(63, 69, 163, 1) 35%, rgba(85, 29, 153, 1) 89%, rgba(85, 29, 153, 1) 100%);
     background-size: 60%, 60%, 50%, 70%, 100%, 150%;
     background-repeat: no-repeat;
     background-position: 0 , right 110%, right 30%, center, 150% 100%;
     bottom: 0;
+    display: flex;
     &__stars{
         position: absolute;
         z-index: 5;
+    }
+    &__text{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-self: flex-end;
+        margin-bottom: $space-2xl;
+    }
+    &__linklist{
+        list-style: none;
+    }
+    &__link a{
+        color: white;
+        transition: 0.1s;
+        &:hover{
+            transition: 0.1s;
+            color: aqua;
+        }
+    }
+    &__paragraph{
+        color: white;
+        font-weight: 500;
     }
     
 }
@@ -896,7 +943,6 @@ body{
     
     &__collection{
         border-radius: $border-radius-section;
-        background-color: aqua;
         padding: $space-s;
         display: flex;
         align-items: end;
@@ -1000,6 +1046,21 @@ body{
             flex-flow: row nowrap;
             list-style: none;
             gap: $space-xl;
+            
+        }
+        &__link{
+            transition: 0.1s;
+            &:hover{
+                transition: 0.1s;
+                color: aqua;
+                cursor: pointer;
+            }
+            & a{
+                &:hover{
+                    transition: 0.1s;
+                    color: aqua;
+                }
+            }
         }
         &__burgermenubtn{
             display: none;
