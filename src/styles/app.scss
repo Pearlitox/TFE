@@ -60,7 +60,7 @@ body{
         align-items: center;
         margin-bottom: $space-xs;
         & img{
-            height: $space-xl;
+            height: $space-l;
             margin-bottom: $space-xs;
         }
         &:hover{
@@ -68,7 +68,13 @@ body{
             background-color: white;
             cursor: pointer;
         }
+        & p{
+            font-size: $step-0;
+        }
 
+    }
+    &__scrollable{
+        height: 50%;
     }
     &__stars{
         background: url(../assets/images/star_green.webp), url(../assets/images/star_pastelblue.webp), radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
@@ -178,11 +184,19 @@ body{
         left: 50%;
         transform: translateX(-50%);
     }
-    &__actions{
-        display: none;
-    }
+
     &__icon{
         height: 1.25em;
+        &:hover{
+            cursor: pointer;
+        }
+        &--search{
+            display: none;
+        }
+        
+        &--account{
+            display: none;
+        }
     }
     &__links{
         display: none;
@@ -347,43 +361,41 @@ body{
     }
     &__collection{
         border-radius: $border-radius-section;
-        background-color: aqua;
         padding: $space-s;
         display: flex;
         align-items: end;
+        & h2{
+            color: white;
+        }
         &--loudluxury{
             grid-column: span 2 / span 2;
-
-
+            background: linear-gradient(180deg, rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/chromemadness_thumbnail.webp);
         }
         &--corporategirly{
             grid-row-start: 2;
-            background: url(../assets/images/chromemadness_thumbnail.webp);
+            background: linear-gradient(180deg, rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/chromemadness_thumbnail.webp);
             background-position: center top;
-            background-size: 110%;
-
+            background-size: cover;
         }
         &--summershine{
             grid-row-start: 2;
             
-            background: url(../assets/images/summershine_thumbnail.webp);
+            background: linear-gradient(180deg, rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/summershine_thumbnail.webp);
             background-position: center bottom;
-            background-size: 110%;
-            
+            background-size: cover;
 
         }
         &--springfloral{
             grid-row-start: 3;
             
-            background: url(../assets/images/cherryblossomimghover.webp);
+            background: linear-gradient(180deg, rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/cherryblossomimghover.webp);
             background-position: center;
-            background-size: 110%;
-
+            background-size: cover;
         }
         &--timelessclassics{
             grid-row-start: 3;
-            background-size: 110%;
-            background: url(../assets/images/frenchmanucureimghover.webp);
+            background-size: cover;
+            background: linear-gradient(180deg, rgba(63, 69, 163, 0) 32%, rgba(63, 69, 163, 0.84) 82%), url(../assets/images/frenchmanucureimghover.webp);
             background-position: center bottom;
         }
     }
@@ -427,14 +439,24 @@ body{
         justify-content: center;
         gap: $space-m;
     }
+    &__stars{
+        position: fixed;
+        height: 100vh;
+        background: url(../assets/images/star_green.webp), url(../assets/images/star_pastelblue.webp), radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
+        background-position: 0% 0%, 150% 120%;
+        background-repeat: no-repeat;
+        background-size: 60%, 80%, 100%;
+        opacity: 0.8;
+    }
 }
+
 .exemples{
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     padding: $space-xl;
-    height: 90vh;
+    height: 100vh;
     &__slider{
         height: 100%;
         display: flex;
@@ -467,7 +489,7 @@ body{
         }
         &:hover{
             transition: 0.2s;
-            height: 15vh;
+            height: 30vh;
             cursor: pointer;
         }
     }
@@ -647,7 +669,7 @@ body{
         opacity: 0.7;
     }
     &__option{
-        width: 25%;
+        width: 20vh;
     }
     &__img{
         transition: 0.2s;
@@ -678,6 +700,7 @@ body{
     column-gap: $space-xs;  
     row-gap: $space-2xs;
     margin-bottom: $space-s;
+    justify-content: center;
 }
 .choice{
     width: 2.13em;
@@ -721,6 +744,115 @@ body{
     gap: $space-xs; //changer en 2XS
     text-align: center;
 }
+.cart{
+    transition: 1s;
+    box-sizing: border-box;
+    transform: translate(100vw);
+    height: 100vh;
+    width: 40vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: $space-m;
+    &__btn{
+        position: absolute;
+        bottom: $space-m;
+    }
+    &__products{
+        display: flex;
+        flex-flow: column;
+        gap: $space-l;
+        overflow-y: auto;
+        height: 80vh;
+    }
+    &__text{
+        display: flex;
+        flex-flow: column;
+    }
+    &__price{
+        color: $secondary;
+        margin: 0;
+    }
+    &__name{
+        margin: 0;
+    }
+    &__product{
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: $space-m;
+    }
+    &__img{
+        height: $space-2xl;
+        aspect-ratio: 1/1;
+    }
+    &__exit{
+        height: $step-0;
+        position: absolute;
+        left: $space-m;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    &__subtitle{
+        margin-top: $space-m;
+    }
+}
+.checkout{
+    padding-top: 20%;
+    &__inputlabel{
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    &__form{
+        display: flex;
+        flex-flow: column;
+    }
+    &__page{
+        display: flex;
+        flex-flow: column;
+        gap: $space-s;
+    }
+    &__label{
+        margin-bottom: $space-xs;
+    }
+    &__input{
+        padding: $space-xs $space-2xs;
+        border-radius: $border-radius;
+    }
+    &__fnamelname{
+        display: flex;
+        flex-flow: row;
+        gap: $space-s;
+    }
+    &__streetpostcode{
+        display: flex;
+        flex-flow: row;
+        gap: $space-s;
+    }
+    &__citycountry{
+        display: flex;
+        flex-flow: row;
+        gap: $space-s;
+    }
+    &__namenumber{
+        display: flex;
+        flex-flow: row;
+        gap: $space-s;
+    }
+    &__cvvdate{
+        display: flex;
+        flex-flow: row;
+        gap: $space-s;
+    }
+}
 .set{
     display: flex;
     flex-flow: column;
@@ -740,8 +872,11 @@ body{
     &__btns{
         box-sizing: border-box;
     }
-    &__buy{
-        background-color: $secondary;
+    &__btn{
+        &--buy{
+            background-color: $secondary;
+        }
+        
     }
     &__slide{
         box-sizing: border-box;
@@ -1019,52 +1154,11 @@ body{
         width: 50vw;
         margin-bottom: $space-m;
         }
-        &__nav{
-            border-radius: $border-radius-section;
-            padding: 0 $space-m;
-            top: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: $space-xl;
-            display: flex;
-            flex-flow: row;
-            justify-content: space-between;
-            align-items: center;
-        }
         &__logo{
             width: 40vw;
             margin-bottom: $space-xl;
         }
-        &__actions{
-            display: flex;
-            flex-flow: row nowrap;
-            gap: $space-m;
-        }
-        &__links{
-            display: flex;
-            flex-flow: row nowrap;
-            list-style: none;
-            gap: $space-xl;
-            
-        }
-        &__link{
-            transition: 0.1s;
-            &:hover{
-                transition: 0.1s;
-                color: aqua;
-                cursor: pointer;
-            }
-            & a{
-                &:hover{
-                    transition: 0.1s;
-                    color: aqua;
-                }
-            }
-        }
-        &__burgermenubtn{
-            display: none;
-        }
+        
     }
     .section{
         width: 70%;
@@ -1119,6 +1213,7 @@ body{
     }
     .row{
         column-gap: $space-s;
+        justify-content: start;
     }
     .exemples{
         
@@ -1159,32 +1254,104 @@ body{
     
     .products{
         &__options{
-            justify-content: space-between;
+            justify-content: start;
             gap: $space-m;
         }
     }
-    @media(min-width : 1200px){
-    .custom{
-        padding: 7.5% 0 2.5% 0;
-        &__left{
-        width: 40vw;
-        height: fit-content;
-        }
-    }
     
+@media(min-width : 1200px){
+    .landing{
+        &__nav{
+            border-radius: $border-radius-section;
+            padding: 0 $space-m;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: $space-xl;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__links{
+            display: flex;
+            flex-flow: row nowrap;
+            list-style: none;
+            gap: $space-xl;
+            
+        }
+        &__link{
+            transition: 0.1s;
+            &:hover{
+                transition: 0.1s;
+                color: aqua;
+                cursor: pointer;
+            }
+            & a{
+                &:hover{
+                    transition: 0.1s;
+                    color: aqua;
+                }
+            }
+        }
+        &__burgermenubtn{
+            display: none;
+        }
+        &__actions{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: $space-m;
+        }
+        &__icon{
+            &--search{
+                display: block;
+            }
+        
+            &--account{
+                display: block;
+            }
+        }
+        
+    }
+    .checkout{
+    padding-top: 10%;
+    &__inputlabel{
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    &__form{
+        display: flex;
+        flex-flow: row;
+        gap: $space-2xl;
+    }
+    &__steps{
+        width: 60%;
+    }
+    &__preview{
+        position: sticky;
+        top: 7.5%;
+        width: 40%;
+    }
+
     .custom{
+        padding-top: 10% ;
         display: flex;
         flex-flow: row nowrap;
         gap: $space-l;
         &__left{
-        width: 40vw;
-        height: fit-content;
+        width: 60vw;
+        height: 100%;
         }
         &__optionpanel{
         display: flex;
         flex-flow: row nowrap;
         
         align-items: start;
+        }
+        &__options{
+            overflow-y: auto;
         }
         &__bottom{
             margin-top: $space-s;
@@ -1204,9 +1371,17 @@ body{
         align-items: center;
         justify-content: center;
         }
+        &__step{
+            & img{
+                height: $space-xl;
+            }
+            & p{
+                font-size: $step-1 ;
+            }
+        }
         &__right{
         gap: $space-s;
-        width: 60vw;
+        width: 40vw;
         height: 100%;
         margin: 0;
         }
@@ -1215,11 +1390,33 @@ body{
         }
     
     }
+    .productsgallery{
+        &__stars{
+        height: 170vh;
+        background: url(../assets/images/star_green.webp), url(../assets/images/star_pastelblue.webp), radial-gradient(circle,rgba(255, 0, 161, 0.32) 0%, rgba(255, 0, 161, 0) 48%, rgba(255, 0, 161, 0) 100%);
+        background-position: -50% -40%, 150% 120%;
+        background-repeat: no-repeat;
+        background-size: 60%, 80%, 100%;
+        opacity: 0.8;
+        }
+    }
+    
+    }
+    @media(min-width : 1400px){
+        .custom{
+            padding-top: 7.5%;
+            &__left{
+                width: 40vw;
+            }
+            &__right{
+                width: 60vw;
+            }
+        }
+    }
     
 }
-    
-}
+
 .notfixed{
     margin: $space-xl  0;
     position: relative;
-}
+}}

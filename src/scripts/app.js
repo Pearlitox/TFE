@@ -111,8 +111,24 @@ gsap.to('.socialmedias__stars', {
       scrub: true,
     },
   });
+//panier
+let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+const opencart = document.querySelector('.landing__icon--cart');
+const cartsection = document.querySelector('.cart');
+const cartexit = document.querySelector('.cart__exit');
+opencart.addEventListener('click', function( ){
+  openCart();
+})
+cartexit.addEventListener('click', function(){
+  closeCart();
+})
 
-
+function openCart(){
+  cartsection.classList.add('active');
+}
+function closeCart(){
+  cartsection.classList.remove('active');
+}
 //burgermenu
 const burgermenubtn = document.querySelector('.landing__burgermenubtn');
 const burgermenu = document.querySelector('.landing__burgermenu');
@@ -165,6 +181,7 @@ if(deletebtn&&clearbtn&&forward&&backward){
 //étapes customisation
 const steps = document.querySelectorAll(".custom__step");
 const pages = document.querySelectorAll('.custom__page');
+let currentStep = null
 
 if(steps&&pages){
   steps.forEach((step, index) => {
@@ -174,11 +191,23 @@ if(steps&&pages){
       pages[index].classList.add('hidden');  
     }
     step.addEventListener('click', function(btn){
+      currentStep = step.className;
       steps.forEach(function(step){
-      step.classList.remove('selected');
-    });
-    pages.forEach(function(page){
+        step.classList.remove('selected');
+      });
+      pages.forEach(function(page){
       page.classList.add('hidden');
+
+      if(currentStep !== 'custom__step custom__step--nailart'){
+        if(currentnailart){
+          currentnailart.selectable = false;
+        }
+      }
+      if(currentStep == 'custom__step custom__step--nailart'){
+        if(currentnailart){
+          currentnailart.selectable = true;
+        }
+      }
     });
     pages[index].classList.remove('hidden');
     steps[index].classList.add('selected');
@@ -186,8 +215,6 @@ if(steps&&pages){
   });
 };
 
-
-//éditeur canvas
 let currentnailart = null;
 let currentmold = null;
 let currentsize = "m"
@@ -213,20 +240,75 @@ fetch('/assets/data/data.json')
     return response.json();
   })
   .then((data)=>{
-    //filtrer les produits
+
+    //tout les produits
     const select = document.querySelector('.productsgallery__filter');
     const input = document.querySelector('.productsgallery__select');
     const result = document.querySelector('.productsgallery__options');
     const h3 = document.querySelector('.productsgallery__h2');
     const productsrow = document.querySelector('.products__options');
+    const tc = [];
+    const ll = [];
+    const s = [];
+    const sf = [];
+    const cm = [];
+    const col = [];
+    if(result){
+      data.produits.forEach(function(item){
+      const createdelement = {
+            p: document.createElement('p'),
+            h3: document.createElement('h3'),
+            img: document.createElement('img'),
+            div: document.createElement('div')
+          };
+          h3.innerText = item.collection;
+          createdelement.p.classList.add('paragraph');      
+          createdelement.h3.classList.add('overtitle');
+          createdelement.div.classList.add('cell');
+          createdelement.div.classList.add('products__option');
+          createdelement.div.appendChild(createdelement.img);
+          createdelement.div.appendChild(createdelement.p);
+          createdelement.div.appendChild(createdelement.h3);
+          createdelement.p.innerText = item.name;
+          createdelement.img.src = item.imgset;
+          createdelement.h3.innerText = item.priceM +"€";
+          createdelement.img.classList.add('products__img');
+          result.classList.add('products__options');
+          result.appendChild(createdelement.div);
+          createdelement.div.addEventListener('click', function(product){
+            window.location.href = "/assets/pages/set.html"
+            localStorage.setItem('name',JSON.stringify(item));
+          });
 
+          if(item.collection == "Timeless Classics"){
+            tc.push(item)
+          }
+          else if(item.collection == "Loud Luxury"){
+            ll.push(item)
+          }
+          else if(item.collection == "Summershine"){
+            s.push(item)
+          }
+          else if(item.collection == "Spring Floral"){
+            sf.push(item)
+          }
+          else if(item.collection == "Chrome Madness"){
+            cm.push(item)
+          }
+          
+      });
+      col.push(tc, ll, s, sf, cm)
+    }
+    
+    //filtrer les produits
     if(select&&input&&result&&h3){
       select.addEventListener('submit', function(e){
         e.preventDefault();
-        result.textContent = " ";
+        result.innerHTML = " ";
         h3.innerText = " ";
         const collections = input.value;
-        data[collections].forEach(function(item){
+        console.log(collections)
+        col[input.value].forEach(function(item){
           const createdelement = {
             p: document.createElement('p'),
             h3: document.createElement('h3'),
@@ -237,7 +319,6 @@ fetch('/assets/data/data.json')
           createdelement.p.classList.add('paragraph');      
           createdelement.h3.classList.add('overtitle');
           createdelement.div.classList.add('cell');
-          
           createdelement.div.classList.add('products__option');
           createdelement.div.appendChild(createdelement.img);
           createdelement.div.appendChild(createdelement.p);
@@ -255,36 +336,6 @@ fetch('/assets/data/data.json')
         });
       });
     }
-    data.summershine.forEach(function(item){
-      if(productsrow){
-
-      
-      const createdelement = {
-            p: document.createElement('p'),
-            h3: document.createElement('h3'),
-            img: document.createElement('img'),
-            div: document.createElement('div')
-          };
-          createdelement.p.classList.add('paragraph');      
-          createdelement.h3.classList.add('overtitle');
-          createdelement.div.classList.add('cell');
-          createdelement.div.classList.add('products__option');
-          createdelement.div.appendChild(createdelement.img);
-          createdelement.div.appendChild(createdelement.p);
-          createdelement.div.appendChild(createdelement.h3);
-          createdelement.p.innerText = item.name;
-          createdelement.img.src = item.imgset;
-          createdelement.h3.innerText = item.priceM +"€";
-          createdelement.img.classList.add('products__img');
-          productsrow.appendChild(createdelement.div);
-          createdelement.div.addEventListener('click', function(product){
-            window.location.href = "/assets/pages/set.html"
-            localStorage.setItem('name',JSON.stringify(item));
-          });
-      }    
-    })
-
-
     //pages produit individuel
     
     const set = JSON.parse(localStorage.getItem('name'));
@@ -296,14 +347,16 @@ fetch('/assets/data/data.json')
     const slide1 = document.querySelector('.set__slide--1');
     const slide2 = document.querySelector('.set__slide--2');
     const slide3 = document.querySelector('.set__slide--3');
+    const addtocart = document.querySelector('.set__btn--cart');
+    const buynow = document.querySelector('.set__btn--buy');
+    const cartproducts = document.querySelector('.cart__products')
     let slideIndex = 0;
     const prev = document.querySelector('.set__prev');
     const next = document.querySelector('.set__next');
-    if(title&&priceset&&collection&&slides&&slide1&&slide2&&slide3&&prev&&next){
+    if(title&&priceset&&collection&&slides&&slide1&&slide2&&slide3&&prev&&next&&addtocart&&buynow&&cartproducts){
       title.innerText = set.name
       priceset.innerText = set.priceM +"€"
       collection.innerText = set.collection
-    
       //slider
       const productimf = document.createElement('img');
       productimf.src = set.imgmodel
@@ -343,8 +396,42 @@ fetch('/assets/data/data.json')
         slideIndex++;
         showSlide(slideIndex);
       }
+      //ajouter au panier et update le panier
+      updateCart()
+      addtocart.addEventListener('click', function(){
+        cartItems.push(set);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        openCart();
+        updateCart();
+        addtocart.innerText = "Ajouté";
+        addtocart.backgroundColor = 'gray';
+      });
+      function updateCart(){
+        cartproducts.textContent = " ";
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        console.log(cart);
+        cart.forEach(function(item){
+          const cartdiv = document.createElement('div');
+          const cartdivimg = document.createElement('img');
+          const cartdivtext = document.createElement('div');
+          const cartname = document.createElement('p');
+          const cartprice = document.createElement('h3');
+          cartname.innerText = item.name
+          cartprice.innerText = item.priceM+"€"
+          cartdivimg.src = item.imgset
+          cartprice.classList.add('cart__price');
+          cartname.classList.add('cart__name');
+          cartdiv.classList.add('cart__product');
+          cartdivimg.classList.add('cart__img');
+          cartdivtext.classList.add('cart__text');
+          cartdivtext.appendChild(cartname);
+          cartdivtext.appendChild(cartprice);
+          cartdiv.appendChild(cartdivimg);
+          cartdiv.appendChild(cartdivtext);
+          cartproducts.appendChild(cartdiv);
+        });
+      };
     }
-    
     //ajouts formes
     data.molds.forEach(function(item){
       if(shapesrow){
@@ -373,12 +460,32 @@ fetch('/assets/data/data.json')
       size.addEventListener('click', function(){
         if(size.classList.contains('custom__size--xs')){
           currentsize = "xs";
+          if(currentnailart){
+            currentnailart.set({
+              top : -25
+            });
+          }
         }else if(size.classList.contains('custom__size--s')){
           currentsize = "s";
+          if(currentnailart){
+            currentnailart.set({
+              top : -12
+            });
+          }
         }else if(size.classList.contains('custom__size--m')){
           currentsize = "m";
+          if(currentnailart){
+            currentnailart.set({
+              top : 0
+            });
+          }
         }else if(size.classList.contains('custom__size--l')){
           currentsize = "l";
+          if(currentnailart){
+            currentnailart.set({
+              top : 25
+            });
+          }
         } 
         addMold(shapestate[currentsize]);  
       });
@@ -420,7 +527,7 @@ fetch('/assets/data/data.json')
         createdelement.div.addEventListener('click', function(){
           if(currentmold){
             nailartstate = item;
-            addNailart(item.white)
+            addNailart(item.white);
           }
         });
       }
@@ -501,22 +608,21 @@ fetch('/assets/data/data.json')
         });
       }
     });
+    //layer management
   });
 
 function addMold(url){
   fabric.Image.fromURL( url , function(img){
     img.set({
       "selectable": false,
-      "eventable": false,
-      
-
+      "eventable": false
     });
     if(currentmold){
       canvas.remove(currentmold);
     }
     img.scaleToHeight(500);
     img.scaleToWidth(500);
-        
+    
     canvas.add(img);
     canvas.bringForward(img);
     canvas.viewportCenterObject(img);
@@ -534,17 +640,32 @@ function addNailart(url){
     if(currentnailart){
       canvas.remove(currentnailart);
     }
-    img.set({
-    });
     img.scaleToHeight(500);
     img.scaleToWidth(500);
-        
+
     canvas.add(img);
-    canvas.sendBackwards(img);
+    canvas.moveTo(img, 1);
     canvas.viewportCenterObject(img);
 
     currentnailart = img;
-        
+    if(currentsize == "xs"){
+      currentnailart.set({
+      top : -25
+      })
+    }
+    if(currentsize == "s"){
+      currentnailart.set({
+      top : -12
+      })
+    }else if(currentsize == "m"){
+      currentnailart.set({
+      top : 0
+      })
+    }else if(currentsize == "l"){
+      currentnailart.set({
+      top : 25
+      })
+    }
     canvas.renderAll();
   });
 }

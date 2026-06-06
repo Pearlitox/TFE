@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../../styles/app.css">
+    <script src="../../scripts/app.js" defer></script>
+</head>
+<body>
+    <div class="custom__stars stars"></div>
+    <nav class="landing__nav glass">
+      <a href="../../index.html">
+        <img class="logo" src="../images/SVG/icon_color.svg" alt="Icone PearlyNails" />
+      </a>
+      <ul class="landing__links">
+        <li class="landing__link"><a href="collections.html">Collections</a></li>
+        <li class="landing__link"><a href="personnalisation.html">Personnalisation</a></li>
+        <li class="landing__link"><a href="../../index.html">A propos de nous</a></li>
+      </ul>
+      <div class="landing__actions">
+        <img class="landing__icon landing__icon--search" src="../images/SVG/loupe.svg" alt="Rechercher">
+        <img class="landing__icon landing__icon--account" src="../images/SVG/connection.svg" alt="Connexion">
+        <img class="landing__icon landing__icon--cart" src="../images/SVG/cart.svg" alt="Panier">
+      </div>
+      <img class="landing__burgermenubtn" src="../images/SVG/burgermenu.svg" alt="Menu">
+    </nav>
+    <div class="landing__burgermenu">
+      <img class="landing__exit" src="../images/SVG/exit.svg" alt="croix pour fermer le menu burger">
+      <ul class="landing__burgermenulinks">
+        <li class="landing__link"><a href="collections.html">Collections</a></li>
+        <li class="landing__link"><a href="personnalisation.html">Personnalisation</a></li>
+        <li class="landing__link"><a href="">S'inscrire</a></li>
+        <li class="landing__link landing__link--aboutus"><a href="../../index.html">A propos de nous</a></li>
+      </ul>
+    </div>
+    <section class="cart glass">
+    <img class="cart__exit" src="../images/SVG/exit.svg" alt="croix pour fermer le panier">
+    <h2 class="subtitle cart__subtitle">
+      Panier 
+    </h2>
+    <div class="cart__products">
+      <p class="paragraph">
+        Votre panier est vide...
+      </p>
+    </div>
+    <a class="btn cart__btn" href="">Checkout</a>
+  </section>
+  <section class="checkout section">
+    
+    <form class="checkout__form" action="">
+        <div class="checkout__steps">
+            <div class="checkout__page checkout__page--infos">
+                <h2 class="subtitle">
+                    Informations de contact
+                </h2>
+                <div class="checkout__fnamelname">
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="lname">Nom</label>
+                        <input class="checkout__input glass" type="text" id="lname" placeholder="Jean" required>
+                    </div>
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="fname">Prénom</label>
+                        <input class="checkout__input glass" type="text" id="fname" placeholder="Dupont" required>
+                    </div>
+                </div>
+                <div class="checkout__inputlabel">
+                    <label class="checkout__label" for="email">Adresse email</label>
+                    <input class="checkout__input glass" type="email" id="email" placeholder="adresse@email.com" required>
+                </div>
+                <div class="checkout__inputlabel">
+                    <label class="checkout__label" for="phone">Numéro de téléphone</label>
+                    <input class="checkout__input glass" type="tel" id="phone" placeholder="0123-45-67-89" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required>
+                </div>
+                <h2 class="subtitle">
+                    Adresse de livraison
+                </h2>
+                <div class="checkout__streetpostcode">
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="street">Rue</label>
+                        <input class="checkout__input glass" type="text" id="street" placeholder="Jean" required>
+                    </div>
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="postcode">Code postal</label>
+                        <input class="checkout__input glass" type="text" id="postcode" placeholder="Dupont" required>
+                    </div>
+                </div>
+                <div class="checkout__citycountry">
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="city">Ville</label>
+                        <input class="checkout__input glass" type="text" id="city" placeholder="Jean" required>
+                    </div>
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="country">Pays</label>
+                        <input class="checkout__input glass" type="text" id="country" placeholder="Dupont" required>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" class="glass" id="defaultadress">
+                    <label for="defaultadress">Retenir cette adresse</label>
+                </div>
+            </div>
+            <div class="checkout__page checkout__page--payment">
+                <h2 class="subtitle">
+                    Moyen de paiement
+                </h2>
+                <div class="checkout__radio">
+                    <input type="radio" id="card">
+                    <label for="card">Carte</label>
+                </div>
+                <div class="checkout__namenumber">
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="cardname">Nom</label>
+                        <input class="checkout__input glass" type="text" id="cardname" required>
+                    </div>
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="cardnumber">Numéro de carte</label>
+                        <input class="checkout__input glass" type="text" id="cardnumber" placeholder="Dupont" required>
+                    </div>
+                </div>
+                <div class="checkout__cvvdate">
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="cvv">CVV</label>
+                        <input class="checkout__input glass" type="text" id="cvv" required>
+                    </div>
+                    <div class="checkout__inputlabel">
+                        <label class="checkout__label" for="expdate">Date d'expiration</label>
+                        <input class="checkout__input glass" type="text" id="expdate" placeholder="03/22" required>
+                    </div>
+                </div>
+                <div class="checkout__radio">
+                    <input type="radio" id="paypal">
+                    <label for="paypal">Paypal</label>
+                </div>
+                <div class="checkout__radio">
+                    <input type="radio" id="applepay">
+                    <label for="applepay">Apple pay</label>
+                </div>
+                
+                
+            </div>
+            <button class="btn">Suivant</button>
+        </div>
+        <div class="checkout__preview glass">
+            <button type="submit" class=" btn checkout__btn--buy">Passer commande</button>
+        </div>
+    </form>
+  </section>
+</body>
+</html>

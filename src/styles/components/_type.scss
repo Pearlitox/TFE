@@ -49,6 +49,7 @@
     transition: 0.2s;
     background-color: $tertiary;
     color: $primary;
+    cursor: pointer;
   }
   &:active{
     transition: 0.2s;
@@ -72,4 +73,5 @@ a{
     color: aqua;
   }
 }
+
 
