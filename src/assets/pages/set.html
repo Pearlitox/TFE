@@ -44,7 +44,7 @@
         Votre panier est vide...
       </p>
     </div>
-    <a class="btn cart__btn" href="">Checkout</a>
+    <a class="btn cart__btn" href="checkout.html">Checkout</a>
   </section>
     <section class="set section">
         <div class="set__slider">
@@ -83,32 +83,38 @@
               </h2>
               <input class="set__quantity glass" min="1" max="10" type="number" name="quantity" id="quantity" value="1">
             </div>
-            <div class="set__width">
-              <h3 class="overtitle">
-                Largeur des ongles(en mm)
-              </h3>
-              <p>
-                comment prendre ma taille ?
-              </p>
-              <div class="set__widthoptions">
+            <form action="">
                 
-                <p class="btn">XS</p>
-                <p class="btn">S</p>
-                <p class="btn">M</p>
-                <p class="btn">L</p>
-                
-              </div>
               
-            </div>
-            <div class="set__btns">
-              <p class="btn set__btn set__btn--cart">
-                Ajouter au panier
-              </p>
-              <p class="btn set__btn set__btn--buy">
-                Acheter
-              </p>
-            </div>
-            
+              <div class="set__width">
+                <h3 class="overtitle">
+                  Largeur des ongles(en mm)
+                </h3>
+                <p>
+                  comment prendre ma taille ?
+                </p>
+              
+                <div class="set__widthoptions">
+                  <label class="btn" for="xs">XS</label>
+                  <label class="btn" for="s">S</label>
+                  <label class="btn" for="m">L</label>
+                  <label class="btn" for="l">M</label>
+                  <input class="input__radio" type="radio" id="xs">
+                  <input class="input__radio" type="radio" id="s">
+                  <input class="input__radio" type="radio" id="m">
+                  <input class="input__radio" type="radio" id="l">            
+                </div>
+              
+              </div>
+              <div class="set__btns">
+                <p class="btn set__btn set__btn--cart">
+                  Ajouter au panier
+                </p>
+                <p class="btn set__btn set__btn--buy">
+                  Acheter
+                </p>
+              </div>
+            </form>
         </div>
     </section>
 </body>

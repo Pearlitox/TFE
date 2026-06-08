@@ -56,6 +56,11 @@
     background-color: $tertiary;
     color: $primary;
   }
+  &__unclickable{
+    background-color: $primary;
+    color: #ffffff;
+    pointer-events: none;
+  }
 }
 .glass{
   backdrop-filter: blur(20px);

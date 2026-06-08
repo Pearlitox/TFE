@@ -171,10 +171,12 @@ if(deletebtn&&clearbtn&&forward&&backward){
   backward.addEventListener('click', function(){
     let obj = canvas.getActiveObject();
     canvas.sendBackwards(obj);
+    canvas.renderAll();
   });
   forward.addEventListener('click', function(){
     let obj = canvas.getActiveObject();
     canvas.bringForward(obj);
+    canvas.renderAll();
   });
 }
 
@@ -233,8 +235,7 @@ let colorstate = "white";
 let basecolor = null;
 let decostate = null;
 let is2d = true;
-
-
+let total = 0;
 fetch('/assets/data/data.json')
   .then((response)=>{
     return response.json();
@@ -353,6 +354,8 @@ fetch('/assets/data/data.json')
     let slideIndex = 0;
     const prev = document.querySelector('.set__prev');
     const next = document.querySelector('.set__next');
+    const price = document.querySelector('.custom__price');
+    const checkoutproducts = document.querySelector('.checkout__products');
     if(title&&priceset&&collection&&slides&&slide1&&slide2&&slide3&&prev&&next&&addtocart&&buynow&&cartproducts){
       title.innerText = set.name
       priceset.innerText = set.priceM +"€"
@@ -397,19 +400,18 @@ fetch('/assets/data/data.json')
         showSlide(slideIndex);
       }
       //ajouter au panier et update le panier
-      updateCart()
+      
       addtocart.addEventListener('click', function(){
         cartItems.push(set);
         localStorage.setItem('cart', JSON.stringify(cartItems));
         openCart();
         updateCart();
         addtocart.innerText = "Ajouté";
-        addtocart.backgroundColor = 'gray';
+        addtocart.classList.add('btn__unclickable');
       });
       function updateCart(){
         cartproducts.textContent = " ";
         const cart = JSON.parse(localStorage.getItem('cart'));
-        console.log(cart);
         cart.forEach(function(item){
           const cartdiv = document.createElement('div');
           const cartdivimg = document.createElement('img');
@@ -432,6 +434,22 @@ fetch('/assets/data/data.json')
         });
       };
     }
+    const customnext = document.querySelector('.custom__next');
+    let canvasimg = null
+    if(customnext){
+      customnext.addEventListener('click', function(){
+      const myset = {
+        imgset : canvas.toDataURL({format: "png"}),
+        name : "Mon set",
+        priceM : total
+      };
+      localStorage.setItem('name', JSON.stringify(myset))
+      window.location.href = "/assets/pages/set.html"
+    });
+    
+    
+    }
+      
     //ajouts formes
     data.molds.forEach(function(item){
       if(shapesrow){
@@ -452,6 +470,12 @@ fetch('/assets/data/data.json')
         createdelement.div.addEventListener('click', function(){
           shapestate = item;
           addMold(item[currentsize]);
+          if(!currentmold){
+            total+=item.price
+          }
+          //prix custom
+          price.innerText = total+"€"
+
         });
       }
     });
@@ -505,6 +529,10 @@ fetch('/assets/data/data.json')
             colorstate = item.name
             addBasecolor(basecolor[colorstate]);
           }
+          if(!currentbase){
+            total+=basecolor.price
+            price.innerText = total+"€"
+          }
         });
       }
     });
@@ -528,6 +556,11 @@ fetch('/assets/data/data.json')
           if(currentmold){
             nailartstate = item;
             addNailart(item.white);
+            if(!currentnailart){
+              total+=nailartstate.price
+              price.innerText = total+"€"
+            }
+            
           }
         });
       }
@@ -540,8 +573,10 @@ fetch('/assets/data/data.json')
         coloricon.classList.add('color');
         nailartcolorrow.appendChild(coloricon);
         coloricon.addEventListener('click' ,function(){
-          colorstate = item.name
-          addNailart(nailartstate[colorstate]);
+          if(currentmold){
+            colorstate = item.name
+            addNailart(nailartstate[colorstate]);
+          }
         });
       }
     });
@@ -605,6 +640,9 @@ fetch('/assets/data/data.json')
           }else if(is2d === false){
             addDecos3d(decostate[colorstate]);
           }
+          total+=decostate.price
+          price.innerText = total+"€"
+          
         });
       }
     });
@@ -633,8 +671,6 @@ function addMold(url){
   });
 }
 
-
-  
 function addNailart(url){
   fabric.Image.fromURL( url , function(img){
     if(currentnailart){
@@ -644,10 +680,16 @@ function addNailart(url){
     img.scaleToWidth(500);
 
     canvas.add(img);
-    canvas.moveTo(img, 1);
+    if(currentbase){
+      canvas.moveTo(img, 1);
+    }else{
+      canvas.sendBackwards(img);
+    }
+    
     canvas.viewportCenterObject(img);
 
     currentnailart = img;
+    
     if(currentsize == "xs"){
       currentnailart.set({
       top : -25
@@ -697,7 +739,11 @@ function addBasecolor(url){
         img.scaleToHeight(100);
         img.scaleToWidth(100);
         canvas.add(img);
-        canvas.moveTo(img, 2);
+        if(currentnailart){
+          canvas.moveTo(img, 2);
+        }else if(!currentnailart){
+          canvas.sendBackwards(img);
+        }
         canvas.renderAll();
       });
   }
@@ -734,7 +780,6 @@ function resize () {
   
 }
 
-
 window.addEventListener('resize', resize);
 resize();
-//pages produits commandes
+//Commander son propre set

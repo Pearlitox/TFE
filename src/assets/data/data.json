@@ -19,7 +19,8 @@
                 "rouge": "/assets/data/nailart/nailart_french-rouge.webp",
                 "noir": "/assets/data/nailart/nailart_french-noir.webp",
                 "argenté": "/assets/data/nailart/nailart_french-argente.webp",
-                "doré": "/assets/data/nailart/nailart_french-dore.webp"
+                "doré": "/assets/data/nailart/nailart_french-dore.webp",
+                "price": 5
             },
             { 
                 "name": "Pointe",
@@ -39,7 +40,8 @@
                 "rouge": "/assets/data/nailart/nailart_pointe-rouge.webp",
                 "noir": "/assets/data/nailart/nailart_pointe-noir.webp",
                 "argenté": "/assets/data/nailart/nailart_pointe-argente.webp",
-                "doré": "/assets/data/nailart/nailart_pointe-dore.webp"
+                "doré": "/assets/data/nailart/nailart_pointe-dore.webp",
+                "price": 5
             },
             { 
                 "name": "Side",
@@ -59,7 +61,8 @@
                 "rouge": "/assets/data/nailart/nailart_side-rouge.webp",
                 "noir": "/assets/data/nailart/nailart_side-noir.webp",
                 "argenté": "/assets/data/nailart/nailart_side-argente.webp",
-                "doré": "/assets/data/nailart/nailart_side-dore.webp"
+                "doré": "/assets/data/nailart/nailart_side-dore.webp",
+                "price": 5
             },
             { 
                 "name": "Y2K",
@@ -79,7 +82,8 @@
                 "rouge": "/assets/data/nailart/nailart_y2k-rouge.webp",
                 "noir": "/assets/data/nailart/nailart_y2k-noir.webp",
                 "argenté": "/assets/data/nailart/nailart_y2k-argente.webp",
-                "doré": "/assets/data/nailart/nailart_y2k-dore.webp"
+                "doré": "/assets/data/nailart/nailart_y2k-dore.webp",
+                "price": 5
             },
             { 
                 "name": "Ombré",
@@ -99,7 +103,8 @@
                 "rouge": "/assets/data/nailart/nailart_ombre-rouge.webp",
                 "noir": "/assets/data/nailart/nailart_ombre-noir.webp",
                 "argenté": "/assets/data/nailart/nailart_ombre-argente.webp",
-                "doré": "/assets/data/nailart/nailart_ombre-dore.webp"
+                "doré": "/assets/data/nailart/nailart_ombre-dore.webp",
+                "price": 5
             },
             { 
                 "name": "Aura",
@@ -119,7 +124,8 @@
                 "rouge": "/assets/data/nailart/nailart_aura-rouge.webp",
                 "noir": "/assets/data/nailart/nailart_aura-noir.webp",
                 "argenté": "/assets/data/nailart/nailart_aura-argente.webp",
-                "doré": "/assets/data/nailart/nailart_aura-dore.webp"
+                "doré": "/assets/data/nailart/nailart_aura-dore.webp",
+                "price": 5
 
             },
             { 
@@ -140,7 +146,8 @@
                 "rouge": "/assets/data/nailart/nailart_deep-rouge.webp",
                 "noir": "/assets/data/nailart/nailart_deep-noir.webp",
                 "argenté": "/assets/data/nailart/nailart_deep-argente.webp",
-                "doré": "/assets/data/nailart/nailart_deep-dore.webp"
+                "doré": "/assets/data/nailart/nailart_deep-dore.webp",
+                "price": 5
                 
             }
         ],
@@ -151,7 +158,8 @@
                 "xs":"/assets/data/molds/square_xtrashort.webp",
                 "s":"/assets/data/molds/square_short.webp",
                 "m":"/assets/data/molds/square_medium.webp",
-                "l":"/assets/data/molds/square_long.webp"
+                "l":"/assets/data/molds/square_long.webp",
+                "price": 5
                 
             },
             { 
@@ -160,7 +168,8 @@
                 "xs":"/assets/data/molds/cercueil_xtrashort.webp",
                 "s":"/assets/data/molds/cercueil_short.webp",
                 "m":"/assets/data/molds/cercueil_medium.webp",
-                "l":"/assets/data/molds/cercueil_long.webp"
+                "l":"/assets/data/molds/cercueil_long.webp",
+                "price": 5
                 
             },
             { 
@@ -169,7 +178,8 @@
                 "xs":"/assets/data/molds/almond_xtrashort.webp",
                 "s":"/assets/data/molds/almond_short.webp",
                 "m":"/assets/data/molds/almond_medium.webp",
-                "l":"/assets/data/molds/almond_long.webp"
+                "l":"/assets/data/molds/almond_long.webp",
+                "price": 5
                 
             },
             { 
@@ -178,7 +188,8 @@
                 "xs":"/assets/data/molds/almond_xtrashort.webp",
                 "s":"/assets/data/molds/stiletto_short.webp",
                 "m":"/assets/data/molds/stiletto_medium.webp",
-                "l":"/assets/data/molds/stiletto_long.webp"
+                "l":"/assets/data/molds/stiletto_long.webp",
+                "price": 5
                 
             }
         ],
@@ -269,8 +280,9 @@
                 "rouge": "/assets/data/base/base_rouge.webp",
                 "noir": "/assets/data/base/base_noir.webp",
                 "argenté": "/assets/data/base/base_argente.webp",
-                "doré": "/assets/data/base/base_dore.webp"
-            }            
+                "doré": "/assets/data/base/base_dore.webp",
+                "price": 2.5
+            }
         ],
         "decos2d": [
             {
@@ -291,7 +303,8 @@
                 "rouge": "/assets/data/decos/deco_fleur-rouge.webp",
                 "noir": "/assets/data/decos/deco_fleur-noir.webp",
                 "argenté": "/assets/data/decos/deco_fleur-argente.webp",
-                "doré": "/assets/data/decos/deco_fleur-dore.webp"
+                "doré": "/assets/data/decos/deco_fleur-dore.webp",
+                "price": 2.5
 
             },
             {
@@ -312,7 +325,8 @@
                 "rouge": "/assets/data/decos/deco_etoile5-rouge.webp",
                 "noir": "/assets/data/decos/deco_etoile5-noir.webp",
                 "argenté": "/assets/data/decos/deco_etoile5-argente.webp",
-                "doré": "/assets/data/decos/deco_etoile5-dore.webp"
+                "doré": "/assets/data/decos/deco_etoile5-dore.webp",
+                "price": 1
 
             },
             {
@@ -333,7 +347,8 @@
                 "rouge": "/assets/data/decos/deco_etoile8-rouge.webp",
                 "noir": "/assets/data/decos/deco_etoile8-noir.webp",
                 "argenté": "/assets/data/decos/deco_etoile8-argente.webp",
-                "doré": "/assets/data/decos/deco_etoile8-dore.webp"
+                "doré": "/assets/data/decos/deco_etoile8-dore.webp",
+                "price": 2.5
 
             },
             {
@@ -354,7 +369,8 @@
                 "rouge": "/assets/data/decos/deco_pois-rouge.webp",
                 "noir": "/assets/data/decos/deco_pois-noir.webp",
                 "argenté": "/assets/data/decos/deco_pois-argente.webp",
-                "doré": "/assets/data/decos/deco_pois-dore.webp"
+                "doré": "/assets/data/decos/deco_pois-dore.webp",
+                "price": 1
 
             },
             {
@@ -375,7 +391,8 @@
                 "rouge": "/assets/data/decos/deco_spirale-rouge.webp",
                 "noir": "/assets/data/decos/deco_spirale-noir.webp",
                 "argenté": "/assets/data/decos/deco_spirale-argente.webp",
-                "doré": "/assets/data/decos/deco_spirale-dore.webp"
+                "doré": "/assets/data/decos/deco_spirale-dore.webp",
+                "price": 2
 
             },
             {
@@ -396,7 +413,8 @@
                 "rouge": "/assets/data/decos/deco_cadre-rouge.webp",
                 "noir": "/assets/data/decos/deco_cadre-noir.webp",
                 "argenté": "/assets/data/decos/deco_cadre-argente.webp",
-                "doré": "/assets/data/decos/deco_cadre-dore.webp"
+                "doré": "/assets/data/decos/deco_cadre-dore.webp",
+                "price": 2.5
 
             },
             {
@@ -417,7 +435,8 @@
                 "rouge": "/assets/data/decos/deco_aura-rouge.webp",
                 "noir": "/assets/data/decos/deco_aura-noir.webp",
                 "argenté": "/assets/data/decos/deco_aura-argente.webp",
-                "doré": "/assets/data/decos/deco_aura-dore.webp"
+                "doré": "/assets/data/decos/deco_aura-dore.webp",
+                "price": 1
 
             },
             {
@@ -438,7 +457,8 @@
                 "rouge": "/assets/data/decos/deco_boucle-rouge.webp",
                 "noir": "/assets/data/decos/deco_boucle-noir.webp",
                 "argenté": "/assets/data/decos/deco_boucle-argente.webp",
-                "doré": "/assets/data/decos/deco_boucle-dore.webp"
+                "doré": "/assets/data/decos/deco_boucle-dore.webp",
+                "price": 2.5
 
             },
             {
@@ -459,7 +479,8 @@
                 "rouge": "/assets/data/decos/deco_vague-rouge.webp",
                 "noir": "/assets/data/decos/deco_vague-noir.webp",
                 "argenté": "/assets/data/decos/deco_vague-argente.webp",
-                "doré": "/assets/data/decos/deco_vague-dore.webp"
+                "doré": "/assets/data/decos/deco_vague-dore.webp",
+                "price": 2
 
             }
             
@@ -483,7 +504,8 @@
                 "rouge": "/assets/data/decos/deco_ibiscus-rouge.webp",
                 "noir": "/assets/data/decos/deco_ibiscus-noir.webp",
                 "argenté": "/assets/data/decos/deco_ibiscus-argente.webp",
-                "doré": "/assets/data/decos/deco_ibiscus-dore.webp"
+                "doré": "/assets/data/decos/deco_ibiscus-dore.webp",
+                "price": 3
 
             },
             {
@@ -504,7 +526,8 @@
                 "rouge": "/assets/data/decos/deco_ibiscus3-rouge.webp",
                 "noir": "/assets/data/decos/deco_ibiscus3-noir.webp",
                 "argenté": "/assets/data/decos/deco_ibiscus3-argente.webp",
-                "doré": "/assets/data/decos/deco_ibiscus3-dore.webp"
+                "doré": "/assets/data/decos/deco_ibiscus3-dore.webp",
+                "price": 2.5
 
             },
             {
@@ -525,7 +548,8 @@
                 "rouge": "/assets/data/decos/deco_noeud-rouge.webp",
                 "noir": "/assets/data/decos/deco_noeud-noir.webp",
                 "argenté": "/assets/data/decos/deco_noeud-argente.webp",
-                "doré": "/assets/data/decos/deco_noeud-dore.webp"
+                "doré": "/assets/data/decos/deco_noeud-dore.webp",
+                "price": 2
 
             },
 
@@ -547,7 +571,8 @@
                 "rouge": "/assets/data/decos/deco_collier-rouge.webp",
                 "noir": "/assets/data/decos/deco_collier-noir.webp",
                 "argenté": "/assets/data/decos/deco_collier-argente.webp",
-                "doré": "/assets/data/decos/deco_collier-dore.webp"
+                "doré": "/assets/data/decos/deco_collier-dore.webp",
+                "price": 3
 
             },
             {
@@ -568,7 +593,8 @@
                 "rouge": "/assets/data/decos/deco_bracelet-rouge.webp",
                 "noir": "/assets/data/decos/deco_bracelet-noir.webp",
                 "argenté": "/assets/data/decos/deco_bracelet-argente.webp",
-                "doré": "/assets/data/decos/deco_bracelet-dore.webp"
+                "doré": "/assets/data/decos/deco_bracelet-dore.webp",
+                "price": 2.5
 
             },
             {
@@ -589,7 +615,8 @@
                 "rouge": "/assets/data/decos/deco_perles3-rouge.webp",
                 "noir": "/assets/data/decos/deco_perles3-noir.webp",
                 "argenté": "/assets/data/decos/deco_perles3-argente.webp",
-                "doré": "/assets/data/decos/deco_perles3-dore.webp"
+                "doré": "/assets/data/decos/deco_perles3-dore.webp",
+                "price": 2
 
             },
             {
@@ -610,7 +637,8 @@
                 "rouge": "/assets/data/decos/deco_perle-rouge.webp",
                 "noir": "/assets/data/decos/deco_perle-noir.webp",
                 "argenté": "/assets/data/decos/deco_perle-argente.webp",
-                "doré": "/assets/data/decos/deco_perle-dore.webp"
+                "doré": "/assets/data/decos/deco_perle-dore.webp",
+                "price": 0.50
 
             }
             
