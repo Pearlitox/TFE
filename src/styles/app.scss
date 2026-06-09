@@ -815,6 +815,29 @@ body{
         margin-top: $space-m;
     }
 }
+.tutorial{
+    z-index: 10;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__intro{
+        box-sizing: border-box;
+        padding: $space-m; 
+        width: 70%;
+        display: flex;
+        flex-flow: column;
+        gap: $space-s;
+    }
+    &__btns{
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+}
 .checkout{
     padding-top: 20%;
     &__inputlabel{

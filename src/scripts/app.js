@@ -116,6 +116,8 @@ let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 const opencart = document.querySelector('.landing__icon--cart');
 const cartsection = document.querySelector('.cart');
 const cartexit = document.querySelector('.cart__exit');
+let total = 0;
+const price = document.querySelector('.custom__price');
 opencart.addEventListener('click', function( ){
   openCart();
 })
@@ -161,11 +163,13 @@ if(deletebtn&&clearbtn&&forward&&backward){
   deletebtn.addEventListener('click', function(){
     let obj = canvas.getActiveObject();
     canvas.remove(obj);
+    canvas.renderAll();
   });
   clearbtn.addEventListener('click', function(){
     let canvasobj = canvas.getObjects();
     canvasobj.forEach((obj)=>{
       canvas.remove(obj);
+      canvas.renderAll();
     })
   });
   backward.addEventListener('click', function(){
@@ -175,7 +179,7 @@ if(deletebtn&&clearbtn&&forward&&backward){
   });
   forward.addEventListener('click', function(){
     let obj = canvas.getActiveObject();
-    canvas.bringForward(obj);
+    canvas.bringToFront(obj);
     canvas.renderAll();
   });
 }
@@ -235,7 +239,7 @@ let colorstate = "white";
 let basecolor = null;
 let decostate = null;
 let is2d = true;
-let total = 0;
+
 fetch('/assets/data/data.json')
   .then((response)=>{
     return response.json();
@@ -354,7 +358,7 @@ fetch('/assets/data/data.json')
     let slideIndex = 0;
     const prev = document.querySelector('.set__prev');
     const next = document.querySelector('.set__next');
-    const price = document.querySelector('.custom__price');
+    
     const checkoutproducts = document.querySelector('.checkout__products');
     if(title&&priceset&&collection&&slides&&slide1&&slide2&&slide3&&prev&&next&&addtocart&&buynow&&cartproducts){
       title.innerText = set.name
