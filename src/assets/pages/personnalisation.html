@@ -9,7 +9,7 @@
     <script src="../../scripts/app.js" defer></script>
 </head>
 <body>
-  <div class="custom__stars stars">
+  <div class="productsgallery__stars stars"></div>
   </div>
     <nav class="landing__nav glass">
       <a href="../../index.html">
@@ -43,14 +43,16 @@
     </h2>
     
     <div class="cart__products">
-      <p class="paragraph">
-        Votre panier est vide...
-      </p>
+      <div class="cart__emptymessage">
+        <p class="paragraph">
+          Votre panier est vide...
+        </p>
+      </div>
     </div>
     <a class="btn cart__btn" href="checkout.html">Checkout</a>
   </section>
-  <section class="tutorial">
-    <div class="tutorial__intro glass">
+  <section class="customtutorial">
+    <div class="customtutorial__step glass">
       <h3 class="overtitle">
         Hello !
       </h3>
@@ -58,29 +60,56 @@
         Bienvenue sur l'éditeur de pressons. Ici vous pourrez laisser parler votre imagination et créer le set de vos rêves.
       </p>
       <p class="paragraph">
-        Faisons un set ensemble pour comprendre comment il fonctionne !
+        Découvrez comment utiliser cet éditeur étape par étape.
       </p>
-      <div class="tutorial__btns">
-        <button class="btn">
+      <div class="customtutorial__btns">
+        <button class="btn customtutorial__ignore">
           Je sais l'utiliser
         </button>
-        <button class="btn">
+        <button class="btn customtutorial__btn">
           Allons-y
         </button>
       </div>
       
     </div>
-    <div class="tutorial__step tutorial__step--">
-
+    <div class="customtutorial__step customtutorial__step--shape glass">
+      <p class="paragraph">
+        La première étape permet de selectionner la taille, la couleur et la longueur de votre futur set.
+      </p>
+      <button class="btn customtutorial__btn">
+        Suivant
+      </button>
     </div>
-    <div class="tutorial__step tutorial__step--">
-
+    <div class="customtutorial__step glass customtutorial__step--">
+      <p class="paragraph">
+        Ici vous pouvez selectionner le nailart et la couleur que vous voudrez.
+        Vous pouvez le déplacer à votre guise en cliquant dessus et en le tirant là où vous voulez.
+      </p>
+      <button class="btn customtutorial__btn">
+        Suivant
+      </button>
     </div>
-    <div class="tutorial__step tutorial__step--">
-
+    <div class="customtutorial__step glass customtutorial__step--">
+      <p class="paragraph">
+        Pour ajouter des décorations, cliquez sur le type de décorations ensuite sélectionnez la couleur que vous préférez.
+      </p>
+      <p class="paragraph">
+        Elles apparaitront toutes dans le coin supérieur gauche de l'écran. En cliquant dessus et en les tirant, vous pourrez les déplacer là où vous voulez sur votre set.
+      </p>
+      <button class="btn customtutorial__btn">
+        Suivant
+      </button>
     </div>
-    <div class="tutorial__step tutorial__step--">
-
+    <div class="customtutorial__step glass customtutorial__step--">
+      <p class="paragraph">
+        Ici vous pourrez selectionner la finition de votre choix.
+      </p>
+      <p class="paragraph">
+        Quand vous serez sur de votre choix cliquez sur suivant pour commander votre propre set !
+      </p>
+      <button class="btn customtutorial__btn customtutorial__finish">
+        J'ai compris
+      </button>
     </div>
   </section>
     <section class="custom">
@@ -219,9 +248,6 @@
 
           </div>
           <div class="custom__total">
-            <h2 class="subtitle custom__price">
-              Price TTC
-            </h2>
             <button class="btn custom__next">Suivant</button>
           </div>
         </div>
@@ -230,5 +256,6 @@
         
     </section>
     
+  <div class="footer__stars"></div>
 </body>
 </html>

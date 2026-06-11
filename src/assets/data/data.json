@@ -642,6 +642,23 @@
 
             }
             
+        ],
+        "finish":[
+            {
+                "name":"Gloss",
+                "img": "/assets/data/logos/finish_vernis-logo.svg",
+                "white": "/assets/data/finish/finish_vernis.webp"
+            },
+            {
+                "name":"Paillettes",
+                "img": "/assets/data/logos/finish_paillettes-logo.svg",
+                "white": "/assets/data/finish/finish_paillettes.webp"
+            },
+            {
+                "name":"Mat",
+                "img": "/assets/data/logos/stiletto_logo.svg",
+                "white": "/assets/data/finish/finish_mat.webp"
+            }
         ], 
         "produits":[
             {
@@ -649,7 +666,7 @@
                 "imgset": "/assets/data/sets/tropicaltripimg.webp",
                 "imghover" :"/assets/data/sets/tropicaltripimghover.webp",
                 "imgmodel": "/assets/data/sets/tropicaltripimgmodel.webp",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Summershine"
             },
             {
@@ -657,7 +674,7 @@
                 "imgset": "/assets/data/sets/sunsetsweetnessimg.webp",
                 "imghover" :"/assets/data/sets/sunsetsweetnessimghover.webp",
                 "imgmodel": "/assets/data/sets/sunsetsweetnessimgmodel.webp",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Summershine"
             },
             {
@@ -665,14 +682,14 @@
                 "imgset": "/assets/data/sets/motherofpearlimg.webp",
                 "imghover" :"/assets/data/sets/motherofpearlimghover.webp",
                 "imgmodel": "/assets/data/sets/motherofpearlimgmodel.webp",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Summershine"
             },{
                 "name": "Flower princess",
                 "imgset": "/assets/data/sets/flowerprincessimg.webp",
                 "imghover" :"",
                 "imgmodel": "",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Spring Floral"
             },
             {
@@ -680,7 +697,7 @@
                 "imgset": "/assets/data/sets/cherryblossomimg.webp",
                 "imghover" :"/assets/data/sets/cherryblossomimghover.webp",
                 "imgmodel": "",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Spring Floral"
             },
             {
@@ -688,7 +705,7 @@
                 "imgset": "/assets/data/sets/frenchmanucureimg.webp",
                 "imghover" :"/assets/data/sets/frenchmanucureimghover.webp",
                 "imgmodel": "/assets/data/sets/frenchmanucureimgmodel.webp",
-                "priceM": "20",
+                "priceM": 20,
                 "collection": "Timeless Classics"
                 
             },
@@ -697,7 +714,7 @@
                 "imgset": "/assets/data/sets/babyboomerimg.webp",
                 "imghover" :"/assets/data/sets/babyboomerimghover.webp",
                 "imgmodel": "/assets/data/sets/babyboomerimgmodel.webp",
-                "priceM": "20",
+                "priceM": 20,
                 "collection": "Timeless Classics"
             },
             {
@@ -705,7 +722,7 @@
                 "imgset": "/assets/data/sets/whitechromeimg.webp",
                 "imghover" :"/assets/data/sets/whitechromeimghover.webp",
                 "imgmodel": "/assets/data/sets/whitechromeimgmodel.webp",
-                "priceM": "20",
+                "priceM": 20,
                 "collection": "Timeless Classics"
             },
             {
@@ -713,7 +730,7 @@
                 "imgset": "/assets/data/sets/redbottomsimg.webp",
                 "imghover" :"/assets/data/sets/redbottomsimghover.webp",
                 "imgmodel": "/assets/data/sets/redbottomsimgmodel.webp",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Loud Luxury"
             },
             {
@@ -721,7 +738,7 @@
                 "imgset": "/assets/data/sets/midasgreedimg.webp",
                 "imghover" :"/assets/data/sets/midasgreedimghover.webp",
                 "imgmodel": "/assets/data/sets/midasgreedimgmodel.webp",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Loud Luxury"
             },
             {
@@ -729,7 +746,7 @@
                 "imgset": "/assets/data/sets/sterlingsilverimg.webp",
                 "imghover" :"/assets/data/sets/midasgreedimghover.webp",
                 "imgmodel": "/assets/data/sets/midasgreedimgmodel.webp",
-                "priceM": "37.50",
+                "priceM": 37.50,
                 "collection": "Chrome Madness"
             }
         ]

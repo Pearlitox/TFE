@@ -117,7 +117,6 @@ const opencart = document.querySelector('.landing__icon--cart');
 const cartsection = document.querySelector('.cart');
 const cartexit = document.querySelector('.cart__exit');
 let total = 0;
-const price = document.querySelector('.custom__price');
 opencart.addEventListener('click', function( ){
   openCart();
 })
@@ -220,13 +219,48 @@ if(steps&&pages){
     });
   });
 };
+//tutorial
+const tuto = document.querySelector('.customtutorial')
+const tutoignore =document.querySelector('.customtutorial__ignore')
+const tutosteps = document.querySelectorAll('.customtutorial__step');
+const tutobtns = document.querySelectorAll('.customtutorial__btn');
+
+if(tutobtns&&tutosteps&&tutoignore){
+  tutobtns.forEach((tutobtn, index)=>{
+  if(index === 0){
+    tutosteps[index].classList.remove('hidden');
+  }else{
+    tutosteps[index].classList.add('hidden');  
+  }
+  tutobtn.addEventListener('click', function(){
+      index++
+      tutosteps.forEach(function(tutostep){
+        tutostep.classList.add('hidden')
+      })
+      if( index >= tutosteps.length){
+        tuto.classList.add('hidden');    
+      }
+      if(tutobtns){
+        tutosteps[index].classList.remove('hidden');
+      }
+      
+  });
+  tutoignore.addEventListener('click', function(){
+    tuto.classList.add('hidden');
+  });
+});
+}
+
+
 
 let currentnailart = null;
 let currentmold = null;
 let currentsize = "m"
 let currentbase = "white"
+let currentFinish = null;
 const nailartrow = document.querySelector('.custom__nailart');
 const shapesrow = document.querySelector('.custom__shapes');
+const finishrow = document.querySelector('.custom__finish');
 const deco2drow = document.querySelector('.custom__deco--2d');
 const deco3drow = document.querySelector('.custom__deco--3d');
 const basecolorrow = document.querySelector('.custom__colors--base');
@@ -239,7 +273,12 @@ let colorstate = "white";
 let basecolor = null;
 let decostate = null;
 let is2d = true;
-
+const tc = [];
+const ll = [];
+const s = [];
+const sf = [];
+const cm = [];
+const col = [];
 fetch('/assets/data/data.json')
   .then((response)=>{
     return response.json();
@@ -251,69 +290,123 @@ fetch('/assets/data/data.json')
     const input = document.querySelector('.productsgallery__select');
     const result = document.querySelector('.productsgallery__options');
     const h3 = document.querySelector('.productsgallery__h2');
-    const productsrow = document.querySelector('.products__options');
-    const tc = [];
-    const ll = [];
-    const s = [];
-    const sf = [];
-    const cm = [];
-    const col = [];
+    const productsrow = document.querySelector('.products__options--index');
+
+    data.produits.forEach(function(item){
+        if(item.collection == "Timeless Classics"){
+          tc.push(item)
+        }
+        else if(item.collection == "Loud Luxury"){
+          ll.push(item)
+        }
+        else if(item.collection === "Summershine"){
+          s.push(item);
+        }
+        else if(item.collection == "Spring Floral"){
+          sf.push(item)
+        }
+        else if(item.collection == "Chrome Madness"){
+          cm.push(item)
+        }
+      
+    });
+    if(productsrow){
+      s.forEach(function(item){
+          const createdelement = {
+          p: document.createElement('p'),
+          h3: document.createElement('h3'),
+          img: document.createElement('img'),
+          div: document.createElement('div')
+        };
+        createdelement.p.classList.add('paragraph');      
+        createdelement.h3.classList.add('overtitle');
+        createdelement.div.classList.add('cell');
+        createdelement.div.classList.add('products__option');
+        createdelement.div.appendChild(createdelement.img);
+        createdelement.div.appendChild(createdelement.p);
+        createdelement.div.appendChild(createdelement.h3);
+        createdelement.p.innerText = item.name;
+        createdelement.img.src = item.imgset;
+        createdelement.h3.innerText = item.priceM +"€";
+        createdelement.img.classList.add('products__img');
+        productsrow.appendChild(createdelement.div);
+        createdelement.div.addEventListener('click', function(product){
+          window.location.href = "/assets/pages/set.html"
+          localStorage.setItem('name',JSON.stringify(item));
+        });
+      });
+    }
+
     if(result){
       data.produits.forEach(function(item){
-      const createdelement = {
-            p: document.createElement('p'),
-            h3: document.createElement('h3'),
-            img: document.createElement('img'),
-            div: document.createElement('div')
-          };
-          h3.innerText = item.collection;
-          createdelement.p.classList.add('paragraph');      
-          createdelement.h3.classList.add('overtitle');
-          createdelement.div.classList.add('cell');
-          createdelement.div.classList.add('products__option');
-          createdelement.div.appendChild(createdelement.img);
-          createdelement.div.appendChild(createdelement.p);
-          createdelement.div.appendChild(createdelement.h3);
-          createdelement.p.innerText = item.name;
-          createdelement.img.src = item.imgset;
-          createdelement.h3.innerText = item.priceM +"€";
-          createdelement.img.classList.add('products__img');
-          result.classList.add('products__options');
-          result.appendChild(createdelement.div);
-          createdelement.div.addEventListener('click', function(product){
-            window.location.href = "/assets/pages/set.html"
-            localStorage.setItem('name',JSON.stringify(item));
-          });
-
-          if(item.collection == "Timeless Classics"){
-            tc.push(item)
-          }
-          else if(item.collection == "Loud Luxury"){
-            ll.push(item)
-          }
-          else if(item.collection == "Summershine"){
-            s.push(item)
-          }
-          else if(item.collection == "Spring Floral"){
-            sf.push(item)
-          }
-          else if(item.collection == "Chrome Madness"){
-            cm.push(item)
-          }
-          
+        const createdelement = {
+          p: document.createElement('p'),
+          h3: document.createElement('h3'),
+          img: document.createElement('img'),
+          div: document.createElement('div')
+        };
+        h3.innerText = "Tous nos produits";
+        createdelement.p.classList.add('paragraph');      
+        createdelement.h3.classList.add('overtitle');
+        createdelement.div.classList.add('cell');
+        createdelement.div.classList.add('products__option');
+        createdelement.div.appendChild(createdelement.img);
+        createdelement.div.appendChild(createdelement.p);
+        createdelement.div.appendChild(createdelement.h3);
+        createdelement.p.innerText = item.name;
+        createdelement.img.src = item.imgset;
+        createdelement.h3.innerText = item.priceM +"€";
+        createdelement.img.classList.add('products__img');
+        result.classList.add('products__options');
+        result.appendChild(createdelement.div);
+        createdelement.div.addEventListener('click', function(product){
+          window.location.href = "/assets/pages/set.html"
+          localStorage.setItem('name',JSON.stringify(item));
+        });
       });
-      col.push(tc, ll, s, sf, cm)
     }
+    console.log(productsrow)
+    console.log(s)
     
+      col.push(tc, ll, s, sf, cm);
     //filtrer les produits
-    if(select&&input&&result&&h3){
+    if(select&&input&&result&&h3&&col&&col){
       select.addEventListener('submit', function(e){
         e.preventDefault();
         result.innerHTML = " ";
         h3.innerText = " ";
+        if(input.value === "5" ){
+          data.produits.forEach(function(item){
+            h3.innerText = "Tous les produits";
+            const createdelement = {
+            p: document.createElement('p'),
+            h3: document.createElement('h3'),
+            img: document.createElement('img'),
+            div: document.createElement('div')
+            };
+            h3.innerText = item.collection;
+            createdelement.p.classList.add('paragraph');      
+            createdelement.h3.classList.add('overtitle');
+            createdelement.div.classList.add('cell');
+            createdelement.div.classList.add('products__option');
+            createdelement.div.appendChild(createdelement.img);
+            createdelement.div.appendChild(createdelement.p);
+            createdelement.div.appendChild(createdelement.h3);
+            createdelement.p.innerText = item.name;
+            createdelement.img.src = item.imgset;
+            createdelement.h3.innerText = item.priceM +"€";
+            createdelement.img.classList.add('products__img');
+            result.classList.add('products__options');
+            result.appendChild(createdelement.div);
+            createdelement.div.addEventListener('click', function(product){
+              window.location.href = "/assets/pages/set.html"
+              localStorage.setItem('name',JSON.stringify(item));
+            });
+          })  
+        }
         const collections = input.value;
-        console.log(collections)
-        col[input.value].forEach(function(item){
+        
+          col[input.value].forEach(function(item){
           const createdelement = {
             p: document.createElement('p'),
             h3: document.createElement('h3'),
@@ -339,10 +432,13 @@ fetch('/assets/data/data.json')
             localStorage.setItem('name',JSON.stringify(item));
           });
         });
+        
+        
       });
     }
     //pages produit individuel
-    
+    let totalprice = 0;
+    const checkoutprice = document.querySelector('.checkout__price');
     const set = JSON.parse(localStorage.getItem('name'));
     const title = document.querySelector('.set__name');
     const priceset = document.querySelector('.set__price');
@@ -353,14 +449,17 @@ fetch('/assets/data/data.json')
     const slide2 = document.querySelector('.set__slide--2');
     const slide3 = document.querySelector('.set__slide--3');
     const addtocart = document.querySelector('.set__btn--cart');
-    const buynow = document.querySelector('.set__btn--buy');
-    const cartproducts = document.querySelector('.cart__products')
+    const cartproducts = document.querySelector('.cart__products');
+    const cartempty = document.querySelector('.cart__emptymessage')
+    const previewproducts = document.querySelector('.checkout__products');
+    const cartbtn = document.querySelector('.cart__btn');
+    cartbtn.classList.add('hidden');
     let slideIndex = 0;
     const prev = document.querySelector('.set__prev');
     const next = document.querySelector('.set__next');
     
     const checkoutproducts = document.querySelector('.checkout__products');
-    if(title&&priceset&&collection&&slides&&slide1&&slide2&&slide3&&prev&&next&&addtocart&&buynow&&cartproducts){
+    if(set&&title&&priceset&&collection&&slides&&slide1&&slide2&&slide3&&prev&&next&&addtocart&&cartproducts){
       title.innerText = set.name
       priceset.innerText = set.priceM +"€"
       collection.innerText = set.collection
@@ -411,7 +510,8 @@ fetch('/assets/data/data.json')
         openCart();
         updateCart();
         addtocart.innerText = "Ajouté";
-        addtocart.classList.add('btn__unclickable');
+        addtocart.classList.add('btn__unclickable')
+        cartbtn.classList.remove('hidden');
       });
       function updateCart(){
         cartproducts.textContent = " ";
@@ -435,23 +535,59 @@ fetch('/assets/data/data.json')
           cartdiv.appendChild(cartdivimg);
           cartdiv.appendChild(cartdivtext);
           cartproducts.appendChild(cartdiv);
+          totalprice+=item.priceM;
         });
       };
     }
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    
+    if(cart){
+      cart.forEach(function(item){
+        if(cart.length > 0){
+          cartempty.textContent = " ";
+          cartbtn.classList.remove('hidden');
+        }
+
+        const cartdiv = document.createElement('div');
+        const cartdivimg = document.createElement('img');
+        const cartdivtext = document.createElement('div');
+        const cartname = document.createElement('p');
+        const cartprice = document.createElement('h3');
+        cartname.innerText = item.name
+        cartprice.innerText = item.priceM+"€"
+        cartdivimg.src = item.imgset
+        cartprice.classList.add('cart__price');
+        cartname.classList.add('cart__name');
+        cartdiv.classList.add('cart__product');
+        cartdivimg.classList.add('cart__img');
+        cartdivtext.classList.add('cart__text');
+        cartdivtext.appendChild(cartname);
+        cartdivtext.appendChild(cartprice);
+        cartdiv.appendChild(cartdivimg);
+        cartdiv.appendChild(cartdivtext);
+        cartproducts.appendChild(cartdiv);
+        totalprice+=item.priceM;
+        if(previewproducts&&checkoutprice){
+          previewproducts.appendChild(cartdiv);
+          checkoutprice.innerText = totalprice.toFixed(2) + "€";
+        }
+      });
+    }
+    //Commander son propre set
+
     const customnext = document.querySelector('.custom__next');
     let canvasimg = null
-    if(customnext){
+    if(customnext&&set){
       customnext.addEventListener('click', function(){
       const myset = {
-        imgset : canvas.toDataURL({format: "png"}),
+        imgset : canvas.toDataURL({format: "png", multiplier: 2}),
         name : "Mon set",
-        priceM : total
+        priceM : total,
+        collection : "Collection personnelle"
       };
       localStorage.setItem('name', JSON.stringify(myset))
       window.location.href = "/assets/pages/set.html"
     });
-    
-    
     }
       
     //ajouts formes
@@ -477,8 +613,6 @@ fetch('/assets/data/data.json')
           if(!currentmold){
             total+=item.price
           }
-          //prix custom
-          price.innerText = total+"€"
 
         });
       }
@@ -490,7 +624,7 @@ fetch('/assets/data/data.json')
           currentsize = "xs";
           if(currentnailart){
             currentnailart.set({
-              top : -25
+              top : -40
             });
           }
         }else if(size.classList.contains('custom__size--s')){
@@ -504,14 +638,14 @@ fetch('/assets/data/data.json')
           currentsize = "m";
           if(currentnailart){
             currentnailart.set({
-              top : 0
+              top : -6
             });
           }
         }else if(size.classList.contains('custom__size--l')){
           currentsize = "l";
           if(currentnailart){
             currentnailart.set({
-              top : 25
+              top : 20
             });
           }
         } 
@@ -535,7 +669,6 @@ fetch('/assets/data/data.json')
           }
           if(!currentbase){
             total+=basecolor.price
-            price.innerText = total+"€"
           }
         });
       }
@@ -562,7 +695,6 @@ fetch('/assets/data/data.json')
             addNailart(item.white);
             if(!currentnailart){
               total+=nailartstate.price
-              price.innerText = total+"€"
             }
             
           }
@@ -645,12 +777,30 @@ fetch('/assets/data/data.json')
             addDecos3d(decostate[colorstate]);
           }
           total+=decostate.price
-          price.innerText = total+"€"
           
         });
       }
     });
-    //layer management
+    data.finish.forEach(function(item){
+      if(finishrow){
+        const createdelement = {
+          p: document.createElement('p'),
+          img: document.createElement('img'),
+          div: document.createElement('div')
+        };
+        createdelement.p.classList.add('paragraph');
+        createdelement.img.classList.add('choice');
+        createdelement.div.classList.add('cell');
+        createdelement.div.appendChild(createdelement.img);
+        createdelement.div.appendChild(createdelement.p);
+        finishrow.appendChild(createdelement.div);
+        createdelement.img.src = item.img;
+        createdelement.p.innerText = item.name;
+        createdelement.div.addEventListener('click', function(){
+          addFinish(item.white);
+        });   
+      } 
+    });
   });
 
 function addMold(url){
@@ -696,7 +846,7 @@ function addNailart(url){
     
     if(currentsize == "xs"){
       currentnailart.set({
-      top : -25
+      top : -40
       })
     }
     if(currentsize == "s"){
@@ -705,12 +855,12 @@ function addNailart(url){
       })
     }else if(currentsize == "m"){
       currentnailart.set({
-      top : 0
+      top : 6
       })
     }else if(currentsize == "l"){
       currentnailart.set({
-      top : 25
-      })
+      top : 20
+      });
     }
     canvas.renderAll();
   });
@@ -762,6 +912,24 @@ function addBasecolor(url){
         canvas.renderAll();
       });
   }
+  function addFinish(url){
+    fabric.Image.fromURL( url , function(img){
+      if(currentFinish){
+        canvas.remove(currentFinish);
+      }
+      img.set({
+        "selectable": false,
+        "eventable": false,
+      })
+      img.scaleToHeight(500);
+      img.scaleToWidth(500);
+      canvas.add(img);
+      canvas.bringToFront(img);
+      canvas.viewportCenterObject(img);
+      currentFinish = img;
+      canvas.renderAll();
+    });
+  }
 function resize () {
   const canvasbox = document.querySelector('.canvas_box')
   const canvasHeight = 525;
@@ -786,4 +954,4 @@ function resize () {
 
 window.addEventListener('resize', resize);
 resize();
-//Commander son propre set
+

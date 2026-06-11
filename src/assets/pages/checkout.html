@@ -8,7 +8,7 @@
     <script src="../../scripts/app.js" defer></script>
 </head>
 <body>
-    <div class="custom__stars stars"></div>
+    <div class="productsgallery__stars stars"></div>
     <nav class="landing__nav glass">
       <a href="../../index.html">
         <img class="logo" src="../images/SVG/icon_color.svg" alt="Icone PearlyNails" />
@@ -40,9 +40,11 @@
       Panier 
     </h2>
     <div class="cart__products">
-      <p class="paragraph">
-        Votre panier est vide...
-      </p>
+      <div class="cart__emptymessage">
+        <p class="paragraph">
+          Votre panier est vide...
+        </p>
+      </div>
     </div>
     <a class="btn cart__btn" href="checkout.html">Checkout</a>
   </section>
@@ -104,10 +106,6 @@
                 <h2 class="subtitle">
                     Moyen de paiement
                 </h2>
-                <div class="checkout__radio">
-                    <input type="radio" id="card">
-                    <label for="card">Carte</label>
-                </div>
                 <div class="checkout__namenumber">
                     <div class="checkout__inputlabel">
                         <label class="checkout__label" for="cardname">Nom</label>
@@ -128,25 +126,58 @@
                         <input class="checkout__input glass" type="text" id="expdate" placeholder="03/22" required>
                     </div>
                 </div>
-                <div class="checkout__radio">
-                    <input type="radio" id="paypal">
-                    <label for="paypal">Paypal</label>
-                </div>
-                <div class="checkout__radio">
-                    <input type="radio" id="applepay">
-                    <label for="applepay">Apple pay</label>
-                </div>
-                
-                
             </div>
-            <button class="btn">Suivant</button>
         </div>
         <div class="checkout__preview glass">
+            <h2 class="subtitle">
+                Résumé de commande
+            </h2>
             <div class="checkout__products">
+            </div>
+            <div class="checkout__total">
+                <p class="paragraph">Total :</p>
+                <h3 class="overtitle checkout__price">
+                    Prix
+                </h3>
             </div>
             <button type="submit" class=" btn checkout__btn--buy">Passer commande</button>
         </div>
     </form>
   </section>
+  <footer class="footer">
+    <div class="footer__text">
+      <div class="footer__column">
+        <p class="overtitle footer__paragraph">
+          SHOP
+        </p>
+        <ul class="footer__linklist">
+          <li class="footer__link"><a href="credit.html">CREDITS</a></li>
+          <li class="footer__link"><a href="collections.html">COLLECTIONS</a></li>
+          <li class="footer__link"><a href="personnalisation.html">PERSONNALISATION</a></li>
+          <li class="footer__link"><a href="">S'INSCRIRE</a></li>
+        </ul>      
+      </div>
+      <div class="footer__column">
+        <p class="overtitle footer__paragraph">
+          VIE PRIVEE
+        </p>
+        <ul class="footer__linklist">
+          <li class="footer__link"><a href="confidentialite.html">POLITIQUE DE CONFIDENTIALITE</a></li>
+          <li class="footer__link"><a href="https://pearl-bondele.com/assets/pages/TFE.html">CASE STUDY</a></li>
+          <li class="footer__link"><a href="utilisation.html">CONDITIONS D'UTILISATION</a></li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <p class="overtitle footer__paragraph">
+          SERVICE CLIENT
+        </p>
+        <ul class="footer__linklist">
+          <li class="footer__link"><a href="mailto:pearlbondele@gmail.com">NOUS CONTACTER</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+  <div class="footer__stars"></div>
 </body>
 </html>
